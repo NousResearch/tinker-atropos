@@ -51,6 +51,8 @@ python launch_training.py --config configs/math_config.yaml
 python ~/atropos/environments/math_server.py serve --config configs/math_config.yaml
 ```
 
+**NOTE:** The `server_type` field in your environment config must be set to "sglang" for this to work properly. We are in the process of updating this upstream to be agnostic to any `server_type`, but for now "sglang" is the functionally correct way to implement a new environment.
+
 ### How It Works
 
 Atropos environments support a `--config` flag that loads your Tinker config (which follows the standard Atropos format with a `tinker` section). The environment uses:

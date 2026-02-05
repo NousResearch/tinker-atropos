@@ -48,6 +48,9 @@ class TinkerConfig(BaseModel):
     checkpoint_dir: str = "./temp/"
     save_checkpoint_interval: int = 0
 
+    # Debug configuration
+    debug: bool = False
+
     # Wandb configuration for trainer
     wandb_project: str = "atropos-tinker"
     wandb_group: Optional[str] = None
@@ -168,6 +171,10 @@ class TinkerAtroposConfig(BaseModel):
         if self.openai:
             return self.openai[0].num_requests_for_eval
         return 256
+
+    @property
+    def debug(self) -> bool:
+        return self.tinker.debug
 
     def to_dict(self) -> Dict[str, Any]:
         return self.model_dump()

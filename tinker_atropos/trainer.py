@@ -274,6 +274,8 @@ class TinkerAtroposTrainer:
 
         # Forward-backward pass with importance sampling loss
         print("Running forward-backward pass...")
+        if self.config.debug:
+            fwd_bwd_start = time.time()
         fwd_bwd_result = await self.training_client.forward_backward_async(
             data, loss_fn="importance_sampling"
         )
@@ -281,10 +283,21 @@ class TinkerAtroposTrainer:
         # Optimizer step
         print("Running optimizer step...")
         adam_params = AdamParams(learning_rate=self.learning_rate, beta1=0.9, beta2=0.95, eps=1e-8)
+        if self.config.debug:
+            optim_start = time.time()
         optim_result = await self.training_client.optim_step_async(adam_params)
 
         fwd_bwd_result = await fwd_bwd_result.result_async()
+        if self.config.debug:
+            fwd_bwd_time = time.time() - fwd_bwd_start
+            print(f"[DEBUG] Forward-backward pass took: {fwd_bwd_time:.3f}s")
+            metrics["time/fwd_bwd"] = fwd_bwd_time
+
         optim_result = await optim_result.result_async()
+        if self.config.debug:
+            optim_time = time.time() - optim_start
+            print(f"[DEBUG] Optimizer step took: {optim_time:.3f}s")
+            metrics["time/optim"] = optim_time
 
         loss_val = (
             fwd_bwd_result.metrics["loss:sum"] if "loss:sum" in fwd_bwd_result.metrics else 0.0
@@ -320,9 +333,15 @@ class TinkerAtroposTrainer:
 
         # Update sampling client with new weights
         print("Saving checkpoint and updating sampling client...")
+        if self.config.debug:
+            save_weights_start = time.time()
         new_path = (
             self.training_client.save_weights_for_sampler(name=f"step_{step+1}").result().path
         )
+        if self.config.debug:
+            save_weights_time = time.time() - save_weights_start
+            print(f"[DEBUG] Save weights took: {save_weights_time:.3f}s")
+            metrics["time/save_weights"] = save_weights_time
         self.current_sampling_client = self.service_client.create_sampling_client(
             model_path=new_path
         )
@@ -350,6 +369,12 @@ class TinkerAtroposTrainer:
                 wandb_metrics.update(self.training_logprob_stats)
             if hasattr(self, "advantage_stats"):
                 wandb_metrics.update(self.advantage_stats)
+
+            # Add timing metrics if debug mode is enabled
+            if self.config.debug:
+                for key in ["time/fwd_bwd", "time/optim", "time/save_weights"]:
+                    if key in metrics:
+                        wandb_metrics[key] = metrics[key]
 
             wandb.log(wandb_metrics, step=step + 1)
 
@@ -429,11 +454,16 @@ async def completions(request: CompletionRequest):
                 stop=request.stop if request.stop else [],
             )
 
+            if trainer.config.debug:
+                inference_start = time.time()
             result = await trainer.current_sampling_client.sample_async(
                 prompt=model_input,
                 sampling_params=sampling_params,
                 num_samples=request.n,
             )
+            if trainer.config.debug:
+                inference_time = time.time() - inference_start
+                print(f"[DEBUG] Inference took: {inference_time:.3f}s")
 
             # Format choices
             for sequence in result.sequences:
@@ -495,11 +525,16 @@ async def chat_completions(request: ChatCompletionRequest):
             stop=request.stop if request.stop else [],
         )
 
+        if trainer.config.debug:
+            inference_start = time.time()
         result = await trainer.current_sampling_client.sample_async(
             prompt=model_input,
             sampling_params=sampling_params,
             num_samples=request.n,
         )
+        if trainer.config.debug:
+            inference_time = time.time() - inference_start
+            print(f"[DEBUG] Inference took: {inference_time:.3f}s")
 
         # Format as OpenAI response
         choices = []
@@ -559,11 +594,16 @@ async def generate(request: GenerateRequest):
             stop=stop if isinstance(stop, list) else [stop],
         )
 
+        if trainer.config.debug:
+            inference_start = time.time()
         result = await trainer.current_sampling_client.sample_async(
             prompt=model_input,
             sampling_params=tinker_sampling_params,
             num_samples=n,
         )
+        if trainer.config.debug:
+            inference_time = time.time() - inference_start
+            print(f"[DEBUG] Inference took: {inference_time:.3f}s")
 
         if n == 1:
             sequence = result.sequences[0]

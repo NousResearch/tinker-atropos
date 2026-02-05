@@ -31,6 +31,9 @@ tinker:
   checkpoint_dir: "./temp/"
   save_checkpoint_interval: 0
 
+  # Debug configuration
+  debug: false  # Enable to log timing for training and inference API calls
+
   # Wandb configuration for trainer
   wandb_project: "atropos-tinker"
   wandb_group: null  # Will be auto-generated if not specified
