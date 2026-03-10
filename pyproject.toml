@@ -9,7 +9,7 @@ description = "Integration between Tinker training API and Atropos RL framework"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "atroposlib @ git+https://github.com/NousResearch/atropos.git",
+    "atroposlib[all]",
     "tinker @ git+https://github.com/thinking-machines-lab/tinker.git",
     "fastapi>=0.104.0",
     "uvicorn[standard]>=0.24.0",
