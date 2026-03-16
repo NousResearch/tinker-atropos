@@ -20,8 +20,12 @@ class CompletionResponse(BaseModel):
 
 
 class ChatMessage(BaseModel):
-    role: str  # "system", "user", "assistant"
-    content: str
+    role: str  # "system", "user", "assistant", "tool"
+    content: str | None = None
+    tool_calls: List[Dict[str, Any]] | None = None
+    tool_call_id: str | None = None
+    name: str | None = None
+    reasoning_content: str | None = None
 
 
 # Request format for /v1/chat/completions endpoint.
@@ -31,6 +35,8 @@ class ChatCompletionRequest(BaseModel):
     temperature: float = 1.0
     stop: List[str] | None = None
     n: int = 1
+    tools: List[Dict[str, Any]] | None = None
+    tool_choice: str | Dict[str, Any] | None = None
 
 
 # Response format for /v1/chat/completions endpoint.
@@ -63,22 +69,3 @@ class GenerateResponse(BaseModel):
     meta_info: Dict[
         str, Any
     ]  # Contains: output_token_logprobs, finish_reason, prompt_tokens, completion_tokens
-
-
-class TokenLogprob(BaseModel):
-    token_id: int
-    logprob: float
-    token: str | None = None  # Decoded token text (when return_text=True)
-
-
-# Request format for /logprobs endpoint.
-class LogprobsRequest(BaseModel):
-    input_ids: List[int] | None = None  # Token IDs to compute logprobs for
-    text: str | None = None  # Text to tokenize then compute logprobs (alternative to input_ids)
-    return_text: bool = False  # Whether to include decoded token strings
-
-
-# Response format for /logprobs endpoint.
-class LogprobsResponse(BaseModel):
-    logprobs: List[TokenLogprob]  # Per-token logprobs
-    num_tokens: int  # Total number of tokens in the input
