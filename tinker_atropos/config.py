@@ -54,6 +54,9 @@ class TinkerConfig(BaseModel):
     wandb_run_name: str = "atropos-tinker-run"
     wandb_run_suffix: str = Field(default_factory=generate_run_suffix)
 
+    # Tool call parser for chat completions
+    tool_call_parser: str = "hermes"
+
 
 class TinkerAtroposConfig(BaseModel):
     """Complete Tinker-Atropos configuration"""
@@ -88,9 +91,7 @@ class TinkerAtroposConfig(BaseModel):
         if self.openai:
             # Remove /v1 suffix if present
             url = self.openai[0].base_url
-            if url.endswith("/v1"):
-                url = url[:-3]
-            return url.rstrip("/")
+            return url.rstrip("/v1").rstrip("/")
         return "http://localhost:8001"
 
     @property
