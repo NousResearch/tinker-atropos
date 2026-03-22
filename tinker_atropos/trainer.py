@@ -156,25 +156,50 @@ class TinkerAtroposTrainer:
                 skipped_count += 1
                 continue
 
+            # Normalize by group std, but never amplify (min std=1.0)
+            group_std = max(float(np.std(advantages)), 1.0)
+            advantages = advantages / group_std
+
             # Apply advantage overrides
             if item.get("overrides") is not None:
                 for i in range(len(item["overrides"])):
                     if item["overrides"][i].get("set_advantage_to_zero", False):
                         advantages[i] = 0.0
 
+            masks = item.get("masks", [])
+
             for i in range(len(item["tokens"])):
                 tokens = item["tokens"][i]
                 trajectory_logprobs = item["inference_logprobs"][i]
                 advantage = advantages[i]
+                token_masks = masks[i] if i < len(masks) else []
 
                 all_advantages.append(advantage)
 
                 input_tokens = tokens[:-1]
                 target_tokens = tokens[1:]
 
-                all_logprobs = trajectory_logprobs[1:]  # Shift right to align with targets
+                all_logprobs = trajectory_logprobs[1:] 
 
-                all_advantages_padded = [0.0 if lp == 1.0 else advantage for lp in all_logprobs]
+                # Clipping logp range
+                all_logprobs = [max(min(lp, 0.0), -20.0) if lp != 1.0 else lp for lp in all_logprobs]
+
+                if token_masks:
+                    shifted_masks = token_masks[1:]
+                    all_advantages_padded = [
+                        advantage if (m != -100) else 0.0
+                        for m in shifted_masks
+                    ]
+                else:
+                    all_advantages_padded = [0.0 if lp == 1.0 else advantage for lp in all_logprobs]
+
+                # Sequence-level loss averaging (per paper): divide advantage by number
+                # of generated tokens so each sequence contributes equally to the gradient
+                # regardless of length. Without this, an 8192-token broken trajectory
+                # dominates over a 600-token successful one.
+                n_gen = sum(1 for a in all_advantages_padded if a != 0.0)
+                if n_gen > 0:
+                    all_advantages_padded = [a / n_gen for a in all_advantages_padded]
 
                 all_reference_logprobs.extend(all_logprobs)
 
@@ -272,10 +297,10 @@ class TinkerAtroposTrainer:
         data = self.get_data()
         print(f"Got {len(data)} Datum objects")
 
-        # Forward-backward pass with importance sampling loss
+        # Forward-backward pass with PPO loss (clip_low=0.2, clip_high=0.28, per paper)
         print("Running forward-backward pass...")
         fwd_bwd_result = await self.training_client.forward_backward_async(
-            data, loss_fn="importance_sampling"
+            data, loss_fn="ppo", loss_fn_config={"clip_low_threshold": 0.2, "clip_high_threshold": 0.28}
         )
 
         # Optimizer step
@@ -286,9 +311,7 @@ class TinkerAtroposTrainer:
         fwd_bwd_result = await fwd_bwd_result.result_async()
         optim_result = await optim_result.result_async()
 
-        loss_val = (
-            fwd_bwd_result.metrics["loss:sum"] if "loss:sum" in fwd_bwd_result.metrics else 0.0
-        )
+        loss_val = fwd_bwd_result.metrics.get("loss:sum", 0.0)
 
         print(f"Loss: {loss_val}")
 
@@ -479,12 +502,16 @@ async def chat_completions(request: ChatCompletionRequest):
         raise HTTPException(status_code=503, detail="Trainer not initialized")
 
     try:
-        messages_dict = [{"role": msg.role, "content": msg.content} for msg in request.messages]
+        messages_dict = [
+            {k: v for k, v in msg.model_dump().items() if v is not None}
+            for msg in request.messages
+        ]
 
         # Apply chat template and tokenize
-        prompt_text = trainer.tokenizer.apply_chat_template(
-            messages_dict, tokenize=False, add_generation_prompt=True
-        )
+        template_kwargs = {"tokenize": False, "add_generation_prompt": True}
+        if request.tools:
+            template_kwargs["tools"] = request.tools
+        prompt_text = trainer.tokenizer.apply_chat_template(messages_dict, **template_kwargs)
         prompt_tokens = trainer.tokenizer.encode(prompt_text, add_special_tokens=False)
         model_input = ModelInput.from_ints(prompt_tokens)
 
@@ -501,20 +528,12 @@ async def chat_completions(request: ChatCompletionRequest):
             num_samples=request.n,
         )
 
-        # Format as OpenAI response
+        # Format as OpenAI response (tool call parsing handled by ManagedServer)
         choices = []
         for i, sequence in enumerate(result.sequences):
             output_text = trainer.tokenizer.decode(sequence.tokens, skip_special_tokens=True)
-            choices.append(
-                {
-                    "message": {
-                        "role": "assistant",
-                        "content": output_text,
-                    },
-                    "index": i,
-                    "finish_reason": "stop",
-                }
-            )
+            message = {"role": "assistant", "content": output_text}
+            choices.append({"message": message, "index": i, "finish_reason": "stop"})
 
         return ChatCompletionResponse(
             id=f"chatcmpl-{random.randint(0, 999999)}",

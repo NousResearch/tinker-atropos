@@ -54,6 +54,9 @@ class TinkerConfig(BaseModel):
     wandb_run_name: str = "atropos-tinker-run"
     wandb_run_suffix: str = Field(default_factory=generate_run_suffix)
 
+    # Tool call parser for chat completions (hermes, qwen, qwen3_coder, etc.)
+    tool_call_parser: str = "hermes"
+
 
 class TinkerAtroposConfig(BaseModel):
     """Complete Tinker-Atropos configuration"""

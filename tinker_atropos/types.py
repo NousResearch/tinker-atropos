@@ -20,8 +20,12 @@ class CompletionResponse(BaseModel):
 
 
 class ChatMessage(BaseModel):
-    role: str  # "system", "user", "assistant"
-    content: str
+    role: str  # "system", "user", "assistant", "tool"
+    content: str | None = None
+    tool_calls: List[Dict[str, Any]] | None = None
+    tool_call_id: str | None = None
+    name: str | None = None
+    reasoning_content: str | None = None
 
 
 # Request format for /v1/chat/completions endpoint.
@@ -31,6 +35,8 @@ class ChatCompletionRequest(BaseModel):
     temperature: float = 1.0
     stop: List[str] | None = None
     n: int = 1
+    tools: List[Dict[str, Any]] | None = None
+    tool_choice: str | Dict[str, Any] | None = None
 
 
 # Response format for /v1/chat/completions endpoint.
