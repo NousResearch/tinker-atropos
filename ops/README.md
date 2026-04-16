@@ -77,8 +77,11 @@ python -m ops.sync_result_to_paperclip \
 Tinker routine 카드 상태 일괄 동기화
 ```bash
 cd /Users/heomin/.hermes/hermes-agent/tinker-atropos
-PAPERCLIP_API_KEY=*** python3 ops/paperclip_tinker_atropos_sync.py --base-url http://127.0.0.1:3100
+python3 ops/paperclip_tinker_atropos_sync.py --base-url http://127.0.0.1:3100
 ```
+
+- `http://127.0.0.1:3100` 이 `local_trusted` 모드면 `PAPERCLIP_API_KEY` 없이도 로컬 보드 권한으로 동작한다.
+- 인증 모드 서버나 루프백이 아닌 주소에서는 기존대로 `PAPERCLIP_API_KEY` 를 넣어야 한다.
 
 Patch draft 실제 적용
 ```bash
@@ -108,8 +111,11 @@ python ops/run_apply_patch.py \
 검증용 Patch Sync Verification 임시 카드 자동 숨김
 ```bash
 cd /Users/heomin/.hermes/hermes-agent/tinker-atropos
-PAPERCLIP_API_KEY=*** python ops/hide_patch_sync_verification_cards.py
+python ops/hide_patch_sync_verification_cards.py
 ```
+
+- 로컬 `local_trusted` 보드면 무인증으로 숨김 처리가 가능하다.
+- 원격 또는 인증 모드에서는 `PAPERCLIP_API_KEY` 를 명시한다.
 
 Patch draft review queue 요약
 ```bash
