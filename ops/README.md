@@ -27,6 +27,8 @@
 - `sync_result_to_paperclip.py` : 이슈 코멘트와 상태 동기화
 - `paperclip_tinker_atropos_sync.py` : Tinker Atropos Ops 회사 카드 동기화 초안, 제목 기준 최신 routine 카드 매핑 포함
 - `paperclip_tinker_closure_criteria.md` : TIN-15, TIN-16 닫힘 기준 문서
+- `paperclip-auth-modes.md` : local_trusted 와 인증 모드에서의 Paperclip 호출 기준 문서
+- `review-request-message-templates.md` : 리뷰 요청용 짧은 메시지 템플릿
 - `external_execution.py` : 계획 생성과 쉘 스크립트 렌더링 로직
 - `apply_patch_draft.py` : generated patch draft 파싱과 실제 파일 적용
 - `review_patch_queue.py` : patch draft 최신성, 적용 상태, 검토 우선순위 요약
