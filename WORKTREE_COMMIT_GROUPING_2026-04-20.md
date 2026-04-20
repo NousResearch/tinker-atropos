@@ -4,9 +4,15 @@
 - `feat/patch-sync-ops-followup`
 
 현재 상태
-- `git status --short` 기준 변경 항목 약 190개
-- 한 번에 커밋하면 리뷰도 어렵고 다음 작업도 꼬인다
-- 따라서 기능 축 기준으로 분리해야 한다
+- `git status --short` 기준 남은 변경 항목 약 69개
+- 이미 아래 묶음은 로컬 커밋으로 분리 완료
+  - `bdb0f30` `feat: add min environments and reward-first full funnel pipeline`
+  - `5501f3d` `docs: record full funnel operating modes and closeout status`
+  - `303ce93` `feat: add tinker ops status and paperclip sync automation`
+  - `844673e` `feat: add feedback-driven patch cycle helpers`
+- 이제 남은 것은 범용 스모크/훈련 유틸, 외부 실행 래퍼, 실험용 산출물 정리 축이 중심이다
+- 한 번에 커밋하면 여전히 리뷰도 어렵고 다음 작업도 꼬인다
+- 따라서 남은 변경도 기능 축 기준으로 계속 분리해야 한다
 
 ## 원칙
 - 산출물과 코드 커밋을 분리한다

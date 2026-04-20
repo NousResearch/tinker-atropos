@@ -98,3 +98,9 @@
 - 오늘 기준으로 기능 마감은 완료
 - 남은 것은 승격 차이 축 유지 판단과 커밋 정리다
 - 따라서 프로젝트 상태는 `운영 마감 완료 / 정리 단계 진입` 으로 본다
+
+## 오늘 만든 로컬 커밋
+- `bdb0f30` `feat: add min environments and reward-first full funnel pipeline`
+- `5501f3d` `docs: record full funnel operating modes and closeout status`
+- `303ce93` `feat: add tinker ops status and paperclip sync automation`
+- `844673e` `feat: add feedback-driven patch cycle helpers`
