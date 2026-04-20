@@ -72,6 +72,7 @@ python run_research_to_full_funnel.py "$INPUT_PATH" \
   --x-count "$X_COUNT" \
   --landing-count "$LANDING_COUNT" \
   --retention-count "$RETENTION_COUNT" \
+  --selection-mode reward \
   --save \
   --json > "$PIPELINE_JSON"
 

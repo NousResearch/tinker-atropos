@@ -1,0 +1,1307 @@
+{
+  "benchmark_version": "v2",
+  "primary_bottleneck": "policy_discrimination_restored",
+  "task_count": 12,
+  "lanes": {
+    "current_policy": {
+      "lane": "current_policy",
+      "bundle_path": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/research/min_hermes_offline_eval_v2_current_policy_template.json",
+      "mean_total": 0.9979,
+      "pass_rate": 1.0,
+      "task_pass_count": 12,
+      "task_count": 12,
+      "lane_passed": true,
+      "env_summary": {
+        "min_business_strategy": {
+          "task_count": 7,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        },
+        "min_landing_cro": {
+          "task_count": 2,
+          "mean_total": 0.9875,
+          "pass_rate": 1.0
+        },
+        "min_x_strategy": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        }
+      },
+      "weakest_tasks": [
+        {
+          "task_id": "landing-live-session-signup",
+          "title": "라이브 참여 신청 랜딩 개선",
+          "total": 0.975
+        },
+        {
+          "task_id": "biz-google-ads-low-risk",
+          "title": "구글 광고 재가동 전 저위험 전략 설계",
+          "total": 1.0
+        },
+        {
+          "task_id": "biz-youtube-telegram-bridge",
+          "title": "유튜브에서 텔레그램으로 넘어가는 중간 다리 전략",
+          "total": 1.0
+        }
+      ],
+      "task_results": [
+        {
+          "task_id": "biz-google-ads-low-risk",
+          "title": "구글 광고 재가동 전 저위험 전략 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-youtube-telegram-bridge",
+          "title": "유튜브에서 텔레그램으로 넘어가는 중간 다리 전략",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-live-replay-loop",
+          "title": "라이브 참여와 리플레이 재참여 루프 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-brand-collab-structure",
+          "title": "브랜드 신뢰를 지키는 협업 제안 구조",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-sydney-action-note",
+          "title": "시드니 맥락 해외 사례 액션 노트 상품화",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-gws-time-saving",
+          "title": "구글 워크스페이스 시간 절약 상품 제안",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-youtube-longterm-collab",
+          "title": "유튜브 장기 테스트형 협업 구조",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-brand-collab-inquiry",
+          "title": "기업 협업 문의 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-live-session-signup",
+          "title": "라이브 참여 신청 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 0.9750000000000001,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 0.8333333333333334,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.8,
+              "actual": 0.8333333333333334,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-ailit-entry-link",
+          "title": "Ailit 입문 상품 첫 행동 유도 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-vip-reactivation-checkin",
+          "title": "VIP 재참여 체크인 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-landing-headline-conversion",
+          "title": "랜딩 헤드라인 한 줄 전환 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    "patched_policy": {
+      "lane": "patched_policy",
+      "bundle_path": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/research/min_hermes_offline_eval_v2_patched_policy_template.json",
+      "mean_total": 0.9924,
+      "pass_rate": 1.0,
+      "task_pass_count": 12,
+      "task_count": 12,
+      "lane_passed": true,
+      "env_summary": {
+        "min_business_strategy": {
+          "task_count": 7,
+          "mean_total": 0.9927,
+          "pass_rate": 1.0
+        },
+        "min_landing_cro": {
+          "task_count": 2,
+          "mean_total": 0.98,
+          "pass_rate": 1.0
+        },
+        "min_x_strategy": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        }
+      },
+      "weakest_tasks": [
+        {
+          "task_id": "biz-google-ads-low-risk",
+          "title": "구글 광고 재가동 전 저위험 전략 설계",
+          "total": 0.9743
+        },
+        {
+          "task_id": "biz-brand-collab-structure",
+          "title": "브랜드 신뢰를 지키는 협업 제안 구조",
+          "total": 0.9743
+        },
+        {
+          "task_id": "landing-brand-collab-inquiry",
+          "title": "기업 협업 문의 랜딩 개선",
+          "total": 0.98
+        }
+      ],
+      "task_results": [
+        {
+          "task_id": "biz-google-ads-low-risk",
+          "title": "구글 광고 재가동 전 저위험 전략 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 0.9742857142857142,
+            "section_coverage": 1.0,
+            "keyword_coverage": 0.8571428571428571,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-youtube-telegram-bridge",
+          "title": "유튜브에서 텔레그램으로 넘어가는 중간 다리 전략",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-live-replay-loop",
+          "title": "라이브 참여와 리플레이 재참여 루프 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-brand-collab-structure",
+          "title": "브랜드 신뢰를 지키는 협업 제안 구조",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 0.9742857142857142,
+            "section_coverage": 1.0,
+            "keyword_coverage": 0.8571428571428571,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-sydney-action-note",
+          "title": "시드니 맥락 해외 사례 액션 노트 상품화",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-gws-time-saving",
+          "title": "구글 워크스페이스 시간 절약 상품 제안",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-youtube-longterm-collab",
+          "title": "유튜브 장기 테스트형 협업 구조",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "channel_fit",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "proposal_alignment",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-brand-collab-inquiry",
+          "title": "기업 협업 문의 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 0.9800000000000001,
+            "section_coverage": 1.0,
+            "specificity": 0.8999999999999999,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-live-session-signup",
+          "title": "라이브 참여 신청 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 0.9800000000000001,
+            "section_coverage": 1.0,
+            "specificity": 0.8999999999999999,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.8,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-ailit-entry-link",
+          "title": "Ailit 입문 상품 첫 행동 유도 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-vip-reactivation-checkin",
+          "title": "VIP 재참여 체크인 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-landing-headline-conversion",
+          "title": "랜딩 헤드라인 한 줄 전환 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "benchmark_version": "v3",
+  "primary_bottleneck": "single_tail_delta_promotion_gate",
+  "task_count": 1,
+  "lanes": {
+    "current_policy": {
+      "lane": "current_policy",
+      "bundle_path": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/research/min_hermes_offline_eval_v3_current_policy_template.json",
+      "mean_total": 0.975,
+      "pass_rate": 0.0,
+      "task_pass_count": 0,
+      "task_count": 1,
+      "lane_passed": false,
+      "env_summary": {
+        "min_landing_cro": {
+          "task_count": 1,
+          "mean_total": 0.975,
+          "pass_rate": 0.0
+        }
+      },
+      "weakest_tasks": [
+        {
+          "task_id": "landing-live-session-signup-tail",
+          "title": "라이브 참여 신청 랜딩 마지막 꼬리 과제",
+          "total": 0.975
+        }
+      ],
+      "task_results": [
+        {
+          "task_id": "landing-live-session-signup-tail",
+          "title": "라이브 참여 신청 랜딩 마지막 꼬리 과제",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 0.9750000000000001,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 0.8333333333333334,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": false,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 1.0,
+              "actual": 0.8333333333333334,
+              "passed": false
+            }
+          ]
+        }
+      ]
+    },
+    "patched_policy": {
+      "lane": "patched_policy",
+      "bundle_path": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/research/min_hermes_offline_eval_v3_patched_policy_template.json",
+      "mean_total": 0.98,
+      "pass_rate": 1.0,
+      "task_pass_count": 1,
+      "task_count": 1,
+      "lane_passed": true,
+      "env_summary": {
+        "min_landing_cro": {
+          "task_count": 1,
+          "mean_total": 0.98,
+          "pass_rate": 1.0
+        }
+      },
+      "weakest_tasks": [
+        {
+          "task_id": "landing-live-session-signup-tail",
+          "title": "라이브 참여 신청 랜딩 마지막 꼬리 과제",
+          "total": 0.98
+        }
+      ],
+      "task_results": [
+        {
+          "task_id": "landing-live-session-signup-tail",
+          "title": "라이브 참여 신청 랜딩 마지막 꼬리 과제",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 0.9800000000000001,
+            "section_coverage": 1.0,
+            "specificity": 0.8999999999999999,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
