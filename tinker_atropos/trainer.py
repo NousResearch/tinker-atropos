@@ -542,6 +542,17 @@ class TinkerAtroposTrainer:
 
 trainer: TinkerAtroposTrainer | None = None
 
+
+def _trainer_not_ready_reason() -> str | None:
+    if trainer is None:
+        return "Trainer not initialized"
+    if trainer.tokenizer is None:
+        return "Trainer not ready: tokenizer not initialized yet"
+    if trainer.current_sampling_client is None:
+        return "Trainer not ready: sampling client not initialized yet"
+    return None
+
+
 # FastAPI server for Atropos environment to call for inference
 app = FastAPI(title="Tinker-Atropos Service")
 
@@ -549,9 +560,12 @@ app = FastAPI(title="Tinker-Atropos Service")
 @app.get("/health")
 async def health():
     """Health check endpoint."""
+    ready_reason = _trainer_not_ready_reason()
     return {
-        "status": "ok",
+        "status": "ok" if ready_reason is None else "starting",
         "trainer_initialized": trainer is not None,
+        "trainer_ready": ready_reason is None,
+        "detail": ready_reason,
     }
 
 
@@ -561,8 +575,9 @@ async def completions(request: CompletionRequest):
     OpenAI-compatible completions endpoint.
     Called by inference server wrapper for regular completions (non-chat).
     """
-    if trainer is None:
-        raise HTTPException(status_code=503, detail="Trainer not initialized")
+    ready_reason = _trainer_not_ready_reason()
+    if ready_reason is not None:
+        raise HTTPException(status_code=503, detail=ready_reason)
 
     try:
         # Handle single prompt (string) or batch (list of strings)
@@ -632,8 +647,9 @@ async def chat_completions(request: ChatCompletionRequest):
     OpenAI-compatible chat completions endpoint.
     Called by inference server wrapper for chat completions.
     """
-    if trainer is None:
-        raise HTTPException(status_code=503, detail="Trainer not initialized")
+    ready_reason = _trainer_not_ready_reason()
+    if ready_reason is not None:
+        raise HTTPException(status_code=503, detail=ready_reason)
 
     try:
         messages_dict = [{"role": msg.role, "content": msg.content} for msg in request.messages]
@@ -691,8 +707,9 @@ async def generate(request: GenerateRequest):
     Called by ManagedServer with tokenized input_ids.
     Returns GenerateResponse for single completion (n=1) or List[GenerateResponse] for multiple (n>1).
     """
-    if trainer is None:
-        raise HTTPException(status_code=503, detail="Trainer not initialized")
+    ready_reason = _trainer_not_ready_reason()
+    if ready_reason is not None:
+        raise HTTPException(status_code=503, detail=ready_reason)
 
     try:
         # Extract input_ids (ManagedServer sends tokenized input)
