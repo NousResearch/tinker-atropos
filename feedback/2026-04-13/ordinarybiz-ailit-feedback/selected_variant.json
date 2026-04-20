@@ -1,0 +1,17 @@
+{
+  "preset": "ailit",
+  "project": "ordinarybiz-ailit-feedback",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 2,
+  "final_edits": [
+    "상담 전환 문장을 더 직접적으로 수정",
+    "체크인 메시지에서 Ailit 언급 유지"
+  ],
+  "published_assets": {
+    "x": "used",
+    "landing": "used",
+    "retention": "used"
+  }
+}

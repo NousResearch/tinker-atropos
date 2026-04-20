@@ -1,0 +1,17 @@
+{
+  "preset": "youtube",
+  "project": "actual-youtube-description-conversion",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 2,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "설명란과 이어지는 행동 문장",
+    "텔레그램 체크리스트 합류 헤드라인"
+  ],
+  "published_assets": {
+    "x": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-youtube-description-conversion/summary/youtube-description-conversion-final-20260417-153037.json",
+    "landing": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-youtube-description-conversion/summary/youtube-description-conversion-final-20260417-153037.json",
+    "retention": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-youtube-description-conversion/summary/youtube-description-conversion-final-20260417-153037.json"
+  }
+}

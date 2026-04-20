@@ -1,0 +1,17 @@
+{
+  "preset": "vip",
+  "project": "ordinarybiz-vip-feedback",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 2,
+  "final_edits": [
+    "VIP 헤드라인에서 신뢰 표현을 더 선명하게 수정",
+    "체크인 문구를 더 짧게 수정"
+  ],
+  "published_assets": {
+    "x": "used",
+    "landing": "used",
+    "retention": "used"
+  }
+}

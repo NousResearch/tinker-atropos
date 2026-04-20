@@ -1,0 +1,18 @@
+{
+  "preset": "ailit",
+  "project": "preset-round4-ailit",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "헤드라인 채택: Ailit 상담 신청으로 이어지는 신뢰 근거 제안",
+    "CTA 채택: 부담 없이 신청하기",
+    "체크인 채택: Ailit 체크인: 지금 멈추지 않게 먼저 이것부터 해봅시다: 후기 블록 위치 하나만 바꾸고 일주일 동안 전환율을 본다."
+  ],
+  "published_assets": {
+    "x": "오늘 바로 할 일은 후기 블록 위치 하나만 바꾸고 일주일 동안 전환율을 본다.",
+    "landing": "Ailit 상담 신청으로 이어지는 신뢰 근거 제안",
+    "retention": "Ailit 체크인: 지금 멈추지 않게 먼저 이것부터 해봅시다: 후기 블록 위치 하나만 바꾸고 일주일 동안 전환율을 본다."
+  }
+}

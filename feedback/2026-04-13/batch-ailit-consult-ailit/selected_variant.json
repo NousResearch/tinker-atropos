@@ -1,0 +1,18 @@
+{
+  "preset": "ailit",
+  "project": "batch-ailit-consult-ailit",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "헤드라인 채택: Ailit 상담 신청으로 이어지는 신뢰 근거 제안",
+    "본문 채택: 지금 필요한 건 신뢰 근거를 앞세운 단일 제안 같은 한 가지 제안이고, 이유는 비교 결과를 한 문장 제안으로 압축하는 것이 우선이다. Ailit 상담 제안으로 자연스럽게 이어지게 정리한다.",
+    "체크인 채택: Ailit 체크인: 지금 멈추지 않게 먼저 이것부터 해봅시다: 후기 블록 위치 하나만 바꾸고 일주일 동안 전환율을 본다"
+  ],
+  "published_assets": {
+    "x": "지금은 후기 블록 위치 하나만 바꾸고 일주일 동안 전환율을 본다.",
+    "landing": "Ailit 상담 신청으로 이어지는 신뢰 근거 제안",
+    "retention": "Ailit 체크인: 지금 멈추지 않게 먼저 이것부터 해봅시다: 후기 블록 위치 하나만 바꾸고 일주일 동안 전환율을 본다"
+  }
+}

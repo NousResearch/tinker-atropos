@@ -1,0 +1,17 @@
+{
+  "preset": "ordinarybiz",
+  "project": "ordinarybiz-feedback",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 2,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "landing 서브카피를 더 짧게 수정",
+    "X 행동유도 문장을 더 직접적으로 수정"
+  ],
+  "published_assets": {
+    "x": "used",
+    "landing": "used",
+    "retention": "used"
+  }
+}

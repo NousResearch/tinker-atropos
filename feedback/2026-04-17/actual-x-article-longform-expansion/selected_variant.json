@@ -1,0 +1,17 @@
+{
+  "preset": "x-article",
+  "project": "actual-x-article-longform-expansion",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "첫 단락 한 줄과 사례 한 개를 직접 드러내는 X 후크/본문",
+    "아티클 독자가 바로 이해하고 저장하는 사례형 랜딩 헤드라인"
+  ],
+  "published_assets": {
+    "x": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-x-article-longform-expansion/summary/x-article-longform-expansion-final-20260417-163833.json",
+    "landing": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-x-article-longform-expansion/summary/x-article-longform-expansion-final-20260417-163833.json",
+    "retention": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-x-article-longform-expansion/summary/x-article-longform-expansion-final-20260417-163833.json"
+  }
+}

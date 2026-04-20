@@ -1,0 +1,10 @@
+*** Begin Patch
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_landing_loop.py
+@@
+# strengthen candidate: 신뢰 근거를 먼저 보여주는 headline (1회)
+# penalize candidate: 긴 설명형 서브카피 (1회)
+# penalize candidate: 추상적인 CTA (1회)
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_x_loop.py
+@@
+# strengthen candidate: 행동이 선명한 문장 (1회)
+*** End Patch

@@ -1,0 +1,101 @@
+*** Begin Patch
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_x_loop.py
+@@
+# strengthen candidate: 설명란과 이어지는 행동 문장 (1회)
+# comment: x 본문의 행동 선명도 강화
+# suggested_old: BODY_PATTERNS = [
+    "핵심은 {offer}이고, 지금은 {summary}",
+    "지금 필요한 건 {offer} 같은 한 가지 제안이고, 이유는 {summary}",
+    "여기서 중요한 건 {offer}에 초점을 모으는 것이고, 결론은 {summary}",
+]
+
+# suggested_new: BODY_PATTERNS = [
+    "핵심은 {offer}이고, 지금은 {summary}",
+    "지금 필요한 건 {offer} 같은 한 가지 제안이고, 이유는 {summary}",
+    "여기서 중요한 건 {offer}에 초점을 모으는 것이고, 오늘 할 일은 {summary}",
+]
+
+# penalize candidate: 긴 설명형 본문 (1회)
+# suggested_old: 0.32 * hook_strength
+            + 0.2 * comment_strength
+            + 0.22 * action_clarity
+            + 0.16 * beginner_friendliness
+            + 0.1 * body_brevity
+# suggested_new: 0.3 * hook_strength
+            + 0.18 * comment_strength
+            + 0.26 * action_clarity
+            + 0.16 * beginner_friendliness
+            + 0.1 * body_brevity
+# suggested_old: body_brevity = 1.0 if 40 <= len(body) <= 120 else 0.5 if len(body) <= 160 else 0.1
+# suggested_new: body_brevity = 1.0 if 40 <= len(body) <= 110 else 0.45 if len(body) <= 150 else 0.1
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_landing_loop.py
+@@
+# strengthen candidate: 유튜브 시청자용 헤드라인 (1회)
+# strengthen candidate: 상담 전환을 바로 말하는 headline (1회)
+# comment: landing headline sales copy 강화
+# suggested_old: HEADLINE_PATTERNS = [
+    "{customer_label}를 위한 {offer_label}",
+    "지금 신뢰를 붙이는 {offer_label}",
+    "{customer_label}가 바로 이해하는 {offer_label}",
+]
+
+# suggested_new: HEADLINE_PATTERNS = [
+    "{customer_label}를 위한 {offer_label}",
+    "신뢰 근거를 먼저 보여주는 {offer_label}",
+    "{customer_label}가 바로 이해하는 {offer_label}",
+]
+
+# strengthen candidate: 논리 흐름이 보이는 후크 (1회)
+# penalize candidate: 두 단계로 읽히는 CTA (1회)
+# comment: CTA를 더 직접적 행동 문구로 강화
+# suggested_old: CTA_PATTERNS = [
+    "지금 진단 신청하기",
+    "지금 핵심 제안 보기",
+    "오늘 바로 시작하기",
+]
+
+# suggested_new: CTA_PATTERNS = [
+    "지금 진단 신청하기",
+    "지금 핵심 제안 확인하기",
+    "오늘 바로 시작하기",
+]
+
+# penalize candidate: 추상적인 신뢰 표현 (1회)
+# penalize candidate: 저장 가치가 약한 headline (1회)
+# comment: landing headline sales copy 강화
+# suggested_old: HEADLINE_PATTERNS = [
+    "{customer_label}를 위한 {offer_label}",
+    "지금 신뢰를 붙이는 {offer_label}",
+    "{customer_label}가 바로 이해하는 {offer_label}",
+]
+
+# suggested_new: HEADLINE_PATTERNS = [
+    "{customer_label}를 위한 {offer_label}",
+    "신뢰 근거를 먼저 보여주는 {offer_label}",
+    "{customer_label}가 바로 이해하는 {offer_label}",
+]
+
+# suggested_old: 0.38 * headline_strength + 0.22 * cta_strength + 0.2 * beginner_friendliness + 0.2 * brevity - hype_penalty
+# suggested_new: 0.4 * headline_strength + 0.2 * cta_strength + 0.18 * beginner_friendliness + 0.22 * brevity - hype_penalty
+# suggested_old: 0.38 * headline_strength + 0.22 * cta_strength + 0.2 * beginner_friendliness + 0.2 * brevity - hype_penalty
+# suggested_new: 0.36 * headline_strength + 0.24 * cta_strength + 0.2 * beginner_friendliness + 0.2 * brevity - hype_penalty
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_retention_loop.py
+@@
+# strengthen candidate: Ailit 체크인 문구 (1회)
+# comment: retention 체크인 강도 보강
+# suggested_old: CHECKIN_PATTERNS = [
+    "오늘은 이 한 가지만 끝내면 됩니다: {mission}",
+    "지금 멈추지 않게 먼저 이것부터 해봅시다: {mission}",
+    "부담 없이 오늘 체크할 한 가지는 이것입니다: {mission}",
+]
+
+# suggested_new: CHECKIN_PATTERNS = [
+    "오늘은 이 한 가지만 끝내면 됩니다: {mission}",
+    "지금 멈추지 않게 먼저 이것부터 해봅시다: {mission}",
+    "부담 없이 오늘 체크할 한 가지는 이것입니다: {mission}. 끝나면 바로 체크인합니다.",
+]
+
+# penalize candidate: 길게 이어지는 retention 미션 문장 (1회)
+# suggested_old: 0.28 * checkin_strength + 0.28 * retention_strength + 0.24 * beginner_friendliness + 0.2 * brevity - hype_penalty
+# suggested_new: 0.3 * checkin_strength + 0.3 * retention_strength + 0.22 * beginner_friendliness + 0.18 * brevity - hype_penalty
+*** End Patch

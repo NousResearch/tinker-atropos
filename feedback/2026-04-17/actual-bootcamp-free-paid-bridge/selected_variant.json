@@ -1,0 +1,17 @@
+{
+  "preset": "bootcamp",
+  "project": "actual-bootcamp-free-paid-bridge",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 3,
+  "final_edits": [
+    "체험 한 가지와 설명란 연결",
+    "업그레이드 이유를 같은 문장에 붙이는 카피"
+  ],
+  "published_assets": {
+    "x": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-bootcamp-free-paid-bridge/summary/bootcamp-free-paid-bridge-final-20260417-154328.json",
+    "landing": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-bootcamp-free-paid-bridge/summary/bootcamp-free-paid-bridge-final-20260417-154328.json",
+    "retention": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-bootcamp-free-paid-bridge/summary/bootcamp-free-paid-bridge-final-20260417-154328.json"
+  }
+}

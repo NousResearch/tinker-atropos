@@ -1,0 +1,148 @@
+*** Begin Patch
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_x_loop.py
+@@
+# strengthen candidate: 설명란과 이어지는 행동 문장 (2회)
+# category: action
+# comment: 유튜브 행동 문장을 설명란 연결형으로 더 직접화
+# suggested_old: item["본문"] += " 유튜브 설명란과 함께 읽히게 연결한다."
+
+# suggested_new: item["본문"] += " 유튜브 설명란 첫 문장과 바로 이어지게 연결한다."
+
+# weight_old: weights = {
+        "hook_strength": 0.29,
+        "comment_strength": 0.17,
+        "action_clarity": 0.28,
+        "beginner_friendliness": 0.16,
+        "body_brevity": 0.1,
+    }
+# weight_new: weights = {
+        "hook_strength": 0.27,
+        "comment_strength": 0.16,
+        "action_clarity": 0.32,
+        "beginner_friendliness": 0.16,
+        "body_brevity": 0.09,
+    }
+# strengthen candidate: x에서 설명란 연결 문장 (1회)
+# category: action
+# comment: 유튜브 설명란 연결 문장을 실행 지시형으로 보강
+# suggested_old: item["본문"] += " 유튜브 설명란과 함께 읽히게 연결한다."
+
+# suggested_new: item["본문"] += " 유튜브 설명란 첫 문장과 바로 이어지게 연결한다."
+
+# penalize candidate: 긴 설명형 본문 (1회)
+# category: body
+# comment: 장문 본문 감점을 더 빠르게 주도록 보수 조정
+# suggested_old: body_brevity = 1.0 if 40 <= len(body) <= 110 else 0.45 if len(body) <= 150 else 0.1
+
+# suggested_new: body_brevity = 1.0 if 40 <= len(body) <= 96 else 0.4 if len(body) <= 135 else 0.1
+
+# weight_old: body_brevity = 1.0 if 40 <= len(body) <= 110 else 0.45 if len(body) <= 150 else 0.1
+# weight_new: body_brevity = 1.0 if 40 <= len(body) <= 96 else 0.4 if len(body) <= 135 else 0.1
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_landing_loop.py
+@@
+# strengthen candidate: 브랜드 중복 없는 Ailit headline (2회)
+# category: headline
+# comment: Ailit headline에서 브랜드 중복 제거와 상담 전환 직결 문구 강화
+# suggested_old: suffix = strip_repeated_brand(suffix_after_marker(headline, "바로 이해하는 "), "Ailit")
+item["헤드라인"] = "Ailit 상담으로 이어지는 " + suffix
+item["CTA"] = "지금 진단 신청하기"
+
+# suggested_new: suffix = strip_repeated_brand(suffix_after_marker(headline, "부담 없이 신청으로 이어지는 "), "Ailit")
+item["헤드라인"] = "Ailit 상담 신청으로 이어지는 " + suffix
+item["CTA"] = "부담 없이 신청하기"
+
+# weight_old: weights = {
+        "headline_strength": 0.41,
+        "cta_strength": 0.19,
+        "beginner_friendliness": 0.16,
+        "brevity": 0.24,
+    }
+# weight_new: weights = {
+        "headline_strength": 0.44,
+        "cta_strength": 0.18,
+        "beginner_friendliness": 0.15,
+        "brevity": 0.23,
+    }
+# strengthen candidate: landing에서 유입 채널이 바로 보이는 headline (1회)
+# category: headline
+# comment: 채널 맥락이 헤드라인 첫머리에서 바로 보이게 보강
+# suggested_old: item["헤드라인"] = "유튜브 시청자를 위한 " + strip_customer_intro(headline)
+
+# suggested_new: item["헤드라인"] = "유튜브 시청자가 바로 이해하는 " + suffix_after_marker(headline, "바로 이해하는 ")
+
+# strengthen candidate: 유튜브 시청자용 헤드라인 (1회)
+# category: headline
+# comment: 유튜브 유입형 헤드라인 고정 패턴 강화
+# suggested_old: item["헤드라인"] = "유튜브 시청자를 위한 " + strip_customer_intro(headline)
+
+# suggested_new: item["헤드라인"] = "유튜브 시청자가 바로 이해하는 " + suffix_after_marker(headline, "바로 이해하는 ")
+
+# penalize candidate: 상담 연결이 약한 채널 일반 표현 (1회)
+# category: headline
+# comment: landing headline sales copy 강화
+# suggested_old: HEADLINE_PATTERNS = [
+    "{customer_label}를 위한 {offer_label}",
+    "지금 신뢰를 붙이는 {offer_label}",
+    "{customer_label}가 바로 이해하는 {offer_label}",
+]
+
+# suggested_new: HEADLINE_PATTERNS = [
+    "{customer_label}를 위한 {offer_label}",
+    "신뢰 근거를 먼저 보여주는 {offer_label}",
+    "{customer_label}가 바로 이해하는 {offer_label}",
+]
+
+# penalize candidate: 두 단계로 읽히는 CTA (1회)
+# category: cta
+# comment: 두 단계 CTA를 한 단계 행동형 CTA로 단순화
+# suggested_old: TERTIARY_CTA_PATTERNS = [
+    "부담 없이 신청하기",
+    "먼저 확인 후 신청하기",
+    "지금 가볍게 바꿔보기",
+]
+
+# suggested_new: TERTIARY_CTA_PATTERNS = [
+    "부담 없이 신청하기",
+    "지금 바로 신청하기",
+    "지금 가볍게 바꿔보기",
+]
+
+# weight_old: weights = {
+        "headline_strength": 0.41,
+        "cta_strength": 0.19,
+        "beginner_friendliness": 0.16,
+        "brevity": 0.24,
+    }
+# weight_new: weights = {
+        "headline_strength": 0.39,
+        "cta_strength": 0.23,
+        "beginner_friendliness": 0.16,
+        "brevity": 0.22,
+    }
+# penalize candidate: 추상적인 신뢰 표현 (1회)
+# category: headline
+# comment: landing headline sales copy 강화
+# suggested_old: HEADLINE_PATTERNS = [
+    "{customer_label}를 위한 {offer_label}",
+    "지금 신뢰를 붙이는 {offer_label}",
+    "{customer_label}가 바로 이해하는 {offer_label}",
+]
+
+# suggested_new: HEADLINE_PATTERNS = [
+    "{customer_label}를 위한 {offer_label}",
+    "신뢰 근거를 먼저 보여주는 {offer_label}",
+    "{customer_label}가 바로 이해하는 {offer_label}",
+]
+
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_retention_loop.py
+@@
+# penalize candidate: 장황한 체크인 문구 (2회)
+# category: retention
+# comment: 체크인 문구 길이 감점을 더 빠르게 반영
+# suggested_old: brevity = 1.0 if len(checkin) <= 80 else 0.5 if len(checkin) <= 140 else 0.1
+
+# suggested_new: brevity = 1.0 if len(checkin) <= 72 else 0.45 if len(checkin) <= 120 else 0.1
+
+# weight_old: brevity = 1.0 if len(checkin) <= 80 else 0.5 if len(checkin) <= 140 else 0.1
+# weight_new: brevity = 1.0 if len(checkin) <= 72 else 0.45 if len(checkin) <= 120 else 0.1
+*** End Patch

@@ -1,0 +1,17 @@
+{
+  "preset": "x-article",
+  "project": "ordinarybiz-xarticle-feedback",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 2,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "긴 글 첫 문단을 더 짧게 압축",
+    "후크를 더 논리형으로 수정"
+  ],
+  "published_assets": {
+    "x": "used",
+    "landing": "used",
+    "retention": "used"
+  }
+}
