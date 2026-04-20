@@ -4,6 +4,9 @@ import json
 from pathlib import Path
 
 REQUIRED_SUFFIXES = ['best', 'final', 'report', 'one-line']
+IGNORED_PROJECTS = {
+    'default-public-ready',
+}
 LEGACY_ALLOWED_MISSING = {
     'ordinarybiz-opsummary': {'final', 'one-line'},
     'ordinarybiz-report': {'final', 'one-line'},
@@ -43,6 +46,8 @@ def collect_full_funnel_status(root: Path) -> dict:
     alerts = []
     for summary_dir in summary_dirs:
         project = summary_dir.parent.name
+        if project in IGNORED_PROJECTS:
+            continue
         artifacts = {suffix: _match_latest(summary_dir, suffix) for suffix in REQUIRED_SUFFIXES}
         allowed_missing = sorted(LEGACY_ALLOWED_MISSING.get(project, set()))
         missing = [suffix for suffix, path in artifacts.items() if path is None and suffix not in LEGACY_ALLOWED_MISSING.get(project, set())]

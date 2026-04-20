@@ -50,6 +50,31 @@
 - 이 카드는 경고 개수보다 `요약 결과가 실제로 생성되었는지` 가 핵심이다.
 - 데이터는 있는데 코멘트와 상태 마감이 없으면 미완료다.
 
+## TIN-24 Daily Promotion Evaluation Snapshot
+
+### done 조건
+아래를 모두 만족할 때만 닫는다.
+1. `benchmark_count >= 2`
+2. `latest_summary_json` 과 `latest_summary_markdown` 이 실제로 존재한다.
+3. `v2.current_policy.lane_passed == true`
+4. `v2.patched_policy.lane_passed == true`
+5. `v3.current_policy.lane_passed == false`
+6. `v3.patched_policy.lane_passed == true`
+7. v2, v3 요약 코멘트가 카드에 기록된다.
+
+### todo 유지 조건
+아래 중 하나라도 참이면 열린 상태로 둔다.
+- v2 또는 v3 점수판이 없다.
+- 최신 promotion-eval 요약 아티팩트가 없다.
+- v2가 아직 current hardening을 못 끝냈다.
+- v3에서 current 와 patched 가 둘 다 통과하거나 둘 다 실패해 승격 구분 신호가 없다.
+- 카드 코멘트가 없다.
+
+### 해석 메모
+- 이 카드는 `current 품질 회복` 과 `patched 승격 신호 유지` 를 함께 본다.
+- v2는 포화되어도 괜찮다.
+- 핵심은 v3에서 마지막 promotion discriminator 가 살아 있는지다.
+
 ## 루틴 상태 해석
 - `completed`
   - 카드와 루틴 모두 닫힌 정상 흐름
@@ -69,10 +94,14 @@
 ### 현재 확인된 사례
 - `Daily Full Funnel Reliability Check`
   - 예전 기준 식별자: `TIN-15`
-  - 최신 routine 카드: `TIN-20`
+  - 최신 routine 카드: `TIN-20`, 현재 열린 카드 관측: `TIN-44`
 - `Daily Preset Performance Snapshot`
   - 예전 기준 식별자: `TIN-16`
-  - 최신 routine 카드: `TIN-22`
+  - 최신 routine 카드: `TIN-22`, 현재 열린 카드 관측: `TIN-45`
+- `Daily Promotion Evaluation Snapshot`
+  - 문서 기준 식별자: `TIN-24`
+  - 실제 수동 생성 후 최신 카드: `TIN-47`
+  - title match 로 동기화 스크립트가 `TIN-24` payload 를 `TIN-47` 카드에 연결함
 
 ### 운영 해석
 - 번호가 바뀌어도 제목과 루틴 의미가 같으면 최신 routine 카드를 닫아야 한다.

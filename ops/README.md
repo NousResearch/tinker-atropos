@@ -24,9 +24,15 @@
 - `run_full_funnel_status.sh` : full funnel 상태 점검 빠른 쉘 진입점
 - `run_preset_scoreboard.py` : preset 별 점수와 최고 headline 집계 + Paperclip 동기화
 - `run_preset_scoreboard.sh` : preset scoreboard 빠른 쉘 진입점
+- `run_promotion_eval_status.py` : 승격 평가 v2/v3 상태 요약 + Paperclip 동기화
+- `promotion_eval_status.py` : v2/v3 scoreboard, 최신 promotion-eval 아티팩트, freshness, alert_count 요약
+- `promotion_eval_daily.py` : 승격 평가 생성 + 회사 카드 동기화 + 최종 평문 리포트 조립
+- `run_promotion_eval_daily.py` : 일일 승격 평가 실행 진입점
 - `sync_result_to_paperclip.py` : 이슈 코멘트와 상태 동기화
-- `paperclip_tinker_atropos_sync.py` : Tinker Atropos Ops 회사 카드 동기화 초안, 제목 기준 최신 routine 카드 매핑 포함
-- `paperclip_tinker_closure_criteria.md` : TIN-15, TIN-16 닫힘 기준 문서
+- `paperclip_issue_matcher.py` : 식별자 드리프트와 제목 드리프트를 함께 견디는 공용 카드 매핑 유틸
+- `paperclip_tinker_atropos_sync.py` : Tinker Atropos Ops 회사 카드 동기화 초안, 공용 매핑 유틸 사용
+- `paperclip_tinker_closure_criteria.md` : TIN-15, TIN-16, TIN-24 닫힘 기준 문서
+- promotion eval 실동기화 확인: 공용 매핑 유틸로 `TIN-24` payload 가 실제 카드 `TIN-47` 에 반영됨
 - `paperclip-auth-modes.md` : local_trusted 와 인증 모드에서의 Paperclip 호출 기준 문서
 - `review-request-message-templates.md` : 리뷰 요청용 짧은 메시지 템플릿
 - `external_execution.py` : 계획 생성과 쉘 스크립트 렌더링 로직
@@ -147,6 +153,18 @@ Preset performance scoreboard
 ```bash
 cd /Users/heomin/.hermes/hermes-agent/tinker-atropos
 python ops/run_preset_scoreboard.py
+```
+
+Promotion eval status monitor
+```bash
+cd /Users/heomin/.hermes/hermes-agent/tinker-atropos
+python ops/run_promotion_eval_status.py
+```
+
+Promotion eval daily runner
+```bash
+cd /Users/heomin/.hermes/hermes-agent/tinker-atropos
+python ops/run_promotion_eval_daily.py
 ```
 
 권장 운영 방식
