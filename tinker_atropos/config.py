@@ -18,7 +18,7 @@ class EnvConfig(BaseModel):
     group_size: int = 16
     batch_size: int = 128
     max_batches_offpolicy: int = 3
-    tokenizer_name: str = "meta-llama/Llama-3.1-8B-Instruct"
+    tokenizer_name: str = "Qwen/Qwen3-8B"
     use_wandb: bool = True
     rollout_server_url: str = "http://localhost:8000"
     wandb_name: str = "atropos-tinker-env"
@@ -62,7 +62,7 @@ class TinkerAtroposConfig(BaseModel):
     openai: List[OpenAIServerConfig] = Field(
         default_factory=lambda: [
             OpenAIServerConfig(
-                model_name="meta-llama/Llama-3.1-8B-Instruct",
+                model_name="Qwen/Qwen3-8B",
                 base_url="http://localhost:8001/v1",
             )
         ]
@@ -86,11 +86,9 @@ class TinkerAtroposConfig(BaseModel):
     def inference_api_url(self) -> str:
         """Convenience accessor for inference server URL (first OpenAI server)"""
         if self.openai:
-            # Remove /v1 suffix if present
-            url = self.openai[0].base_url
-            if url.endswith("/v1"):
-                url = url[:-3]
-            return url.rstrip("/")
+            # Normalize an optional trailing slash, then remove a single /v1 suffix.
+            url = self.openai[0].base_url.rstrip("/")
+            return url.removesuffix("/v1")
         return "http://localhost:8001"
 
     @property

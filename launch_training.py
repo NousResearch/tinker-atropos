@@ -76,7 +76,28 @@ def load_config(args) -> TinkerAtroposConfig:
     if overrides:
         print(f"Applying CLI overrides: {overrides}")
         config_dict = config.to_dict()
-        config_dict.update(overrides)
+
+        if "base_model" in overrides:
+            config_dict["env"]["tokenizer_name"] = overrides["base_model"]
+            if config_dict.get("openai"):
+                config_dict["openai"][0]["model_name"] = overrides["base_model"]
+        if "num_steps" in overrides:
+            config_dict["env"]["total_steps"] = overrides["num_steps"]
+        if "batch_size" in overrides:
+            config_dict["env"]["batch_size"] = overrides["batch_size"]
+        if "group_size" in overrides:
+            config_dict["env"]["group_size"] = overrides["group_size"]
+        if "use_wandb" in overrides:
+            config_dict["env"]["use_wandb"] = overrides["use_wandb"]
+        if "wandb_project" in overrides:
+            config_dict["tinker"]["wandb_project"] = overrides["wandb_project"]
+        if "wandb_group" in overrides:
+            config_dict["tinker"]["wandb_group"] = overrides["wandb_group"]
+        if "lora_rank" in overrides:
+            config_dict["tinker"]["lora_rank"] = overrides["lora_rank"]
+        if "learning_rate" in overrides:
+            config_dict["tinker"]["learning_rate"] = overrides["learning_rate"]
+
         config = TinkerAtroposConfig(**config_dict)
 
     return config

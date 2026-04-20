@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.heomin.hermes.fullfunnel</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/heomin/.hermes/hermes-agent/tinker-atropos/run_full_funnel_operational.sh</string>
+      <string>/Users/heomin/.hermes/hermes-agent/tinker-atropos/sample_research_strategy.txt</string>
+      <string>ordinarybiz-daily</string>
+      <string>ordinarybiz</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>8</integer>
+      <key>Minute</key>
+      <integer>30</integer>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/heomin/.hermes/hermes-agent/tinker-atropos/launchd_full_funnel.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/heomin/.hermes/hermes-agent/tinker-atropos/launchd_full_funnel.log</string>
+    <key>RunAtLoad</key>
+    <true/>
+  </dict>
+</plist>

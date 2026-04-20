@@ -71,6 +71,19 @@ def test_collect_full_funnel_status_ignores_non_full_funnel_proof_projects(tmp_p
     assert summary['latest_run']['project'] == 'project-a'
 
 
+def test_collect_full_funnel_status_ignores_promotion_eval_projects(tmp_path):
+    create_summary_run(tmp_path, 'project-a')
+    promotion_summary = tmp_path / 'outputs' / '2026-04-13' / 'promotion-eval' / 'summary'
+    promotion_summary.mkdir(parents=True)
+    (promotion_summary / 'min-hermes-promotion-eval-20260413-100000.json').write_text('{"benchmarks": {}}', encoding='utf-8')
+    (promotion_summary / 'min-hermes-promotion-eval-20260413-100000.md').write_text('# Min Hermes Promotion Eval', encoding='utf-8')
+
+    summary = collect_full_funnel_status(tmp_path)
+
+    assert summary['run_count'] == 1
+    assert summary['alert_count'] == 0
+    assert summary['latest_run']['project'] == 'project-a'
+
 
 def test_build_comment_body_includes_latest_run_and_alerts(tmp_path):
     summary_dir = create_summary_run(tmp_path, 'project-c')

@@ -340,25 +340,45 @@ def build_reward_replay_aggregate(best: dict[str, Any], funnel_results: list[dic
 def apply_preset_to_best(best: dict, preset: Optional[str]) -> dict:
     if not preset or preset == "ordinarybiz":
         return best
+
+    business = best.get("business")
+    x = best.get("x")
+    landing = best.get("landing")
+    retention = best.get("retention")
+
     if preset == "bootcamp":
-        if best.get("business"):
-            best["business"]["한줄결론"] += " 실전 부트캠프 문맥에서 바로 써먹게 만드는 것이 중요하다."
+        if business:
+            business["한줄결론"] += " 실전 부트캠프 문맥에서 바로 써먹게 만드는 것이 중요하다."
+        if x and x.get("본문") and "부트캠프" not in x["본문"]:
+            x["본문"] = f"부트캠프 실전 기준으로 {x['본문']}"
+        if retention and retention.get("체크인메시지") and "실전" not in retention["체크인메시지"]:
+            retention["체크인메시지"] = f"실전 체크인: {retention['체크인메시지']}"
         return best
     if preset == "vip":
-        if best.get("business"):
-            best["business"]["한줄결론"] += " VIP에게는 더 빠른 실행과 더 높은 신뢰가 핵심이다."
+        if business:
+            business["한줄결론"] += " VIP에게는 더 빠른 실행과 더 높은 신뢰가 핵심이다."
+        if landing and landing.get("헤드라인") and "VIP" not in landing["헤드라인"]:
+            landing["헤드라인"] = f"VIP {landing['헤드라인']}"
+        if retention and retention.get("체크인메시지") and "VIP" not in retention["체크인메시지"]:
+            retention["체크인메시지"] = f"VIP 체크인: {retention['체크인메시지']}"
         return best
     if preset == "ailit":
-        if best.get("business"):
-            best["business"]["한줄결론"] += " Ailit 상담 전환 흐름에 바로 붙이는 것이 중요하다."
+        if business:
+            business["한줄결론"] += " Ailit 상담 전환 흐름에 바로 붙이는 것이 중요하다."
         return best
     if preset == "youtube":
-        if best.get("business"):
-            best["business"]["한줄결론"] += " 유튜브 채널 흐름과 설명란 전환을 같이 맞추는 것이 중요하다."
+        if business:
+            business["한줄결론"] += " 유튜브 채널 흐름과 설명란 전환을 같이 맞추는 것이 중요하다."
+        if x and x.get("본문") and "유튜브" not in x["본문"]:
+            x["본문"] = f"유튜브 전환 기준으로 {x['본문']}"
+        if landing and landing.get("헤드라인") and "유튜브" not in landing["헤드라인"]:
+            landing["헤드라인"] = f"유튜브 {landing['헤드라인']}"
         return best
     if preset == "x-article":
-        if best.get("business"):
-            best["business"]["한줄결론"] += " 긴 글 아티클 기준으로 논리를 더 선명하게 압축하는 것이 중요하다."
+        if business:
+            business["한줄결론"] += " 긴 글 아티클 기준으로 논리를 더 선명하게 압축하는 것이 중요하다."
+        if x and x.get("본문") and "아티클" not in x["본문"] and "긴 글" not in x["본문"]:
+            x["본문"] = f"긴 글 아티클 기준으로 {x['본문']}"
         return best
     return best
 

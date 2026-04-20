@@ -6,6 +6,7 @@ from pathlib import Path
 REQUIRED_SUFFIXES = ['best', 'final', 'report', 'one-line']
 IGNORED_PROJECTS = {
     'default-public-ready',
+    'promotion-eval',
 }
 LEGACY_ALLOWED_MISSING = {
     'ordinarybiz-opsummary': {'final', 'one-line'},

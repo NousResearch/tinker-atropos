@@ -10,7 +10,7 @@ env:
   use_wandb: false
   rollout_server_url: "http://localhost:8000"
   wandb_name: "atropos-tinker-test-env"
-  ensure_scores_not_the_same: false
+  ensure_scores_are_not_same: false
   max_token_length: 256
   max_num_workers: 24
   total_steps: 10
