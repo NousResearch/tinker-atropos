@@ -1,0 +1,17 @@
+{
+  "version": "v4_production_workflow",
+  "lane": "actual_hermes_live_guided_full",
+  "benchmark_path": "research/min_hermes_offline_eval_v4_production_workflow_spec.json",
+  "answer_dir": "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full",
+  "written_count": 5,
+  "written_paths": [
+    "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-landing-build.md",
+    "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-image-to-video.md",
+    "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-figma-implementation.md",
+    "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-codex-in-hermes.md",
+    "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-obsidian-research.md"
+  ],
+  "skipped_task_ids": [],
+  "failed_task_ids": [],
+  "task_count_requested": 5
+}
