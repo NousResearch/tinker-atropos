@@ -16,6 +16,10 @@ from tinker_atropos.environments.min_agentic_research_tinker import (  # noqa: E
     AGENTIC_RESEARCH_ITEMS,
     score_research_answer,
 )
+from tinker_atropos.environments.min_agentic_production_router_tinker import (  # noqa: E402
+    AGENTIC_PRODUCTION_ROUTER_ITEMS,
+    score_production_router_answer,
+)
 from tinker_atropos.environments.min_business_strategy_tinker import (  # noqa: E402
     BUSINESS_STRATEGY_ITEMS,
     score_business_answer,
@@ -53,6 +57,10 @@ ENV_REGISTRY = {
     "min_agentic_research": {
         "items": AGENTIC_RESEARCH_ITEMS,
         "score_fn": score_research_answer,
+    },
+    "min_agentic_production_router": {
+        "items": AGENTIC_PRODUCTION_ROUTER_ITEMS,
+        "score_fn": score_production_router_answer,
     },
 }
 

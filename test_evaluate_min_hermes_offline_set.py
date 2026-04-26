@@ -10,6 +10,10 @@ BENCHMARK_PATH = ROOT / "research" / "min_hermes_offline_eval_v1.json"
 HUMAN_PATH = ROOT / "research" / "min_hermes_offline_eval_v1_human_baseline.json"
 CURRENT_TEMPLATE_PATH = ROOT / "research" / "min_hermes_offline_eval_v1_current_policy_template.json"
 PATCHED_TEMPLATE_PATH = ROOT / "research" / "min_hermes_offline_eval_v1_patched_policy_template.json"
+V4_BENCHMARK_PATH = ROOT / "research" / "min_hermes_offline_eval_v4_production_workflow_spec.json"
+V4_CURRENT_PATH = ROOT / "research" / "min_hermes_offline_eval_v4_current_policy_template.json"
+V4_PRODUCTION_ROUTER_PATH = ROOT / "research" / "min_hermes_offline_eval_v4_production_router_policy_template.json"
+V4_FAILURE_PATH = ROOT / "research" / "min_hermes_offline_eval_v4_failure_policy_template.json"
 
 
 def test_human_baseline_passes_benchmark() -> None:
@@ -60,6 +64,40 @@ def test_policy_templates_capture_real_comparison() -> None:
     assert patched_lane["pass_rate"] >= current_lane["pass_rate"]
     assert patched_lane["env_summary"]["min_landing_cro"]["mean_total"] >= current_lane["env_summary"]["min_landing_cro"]["mean_total"]
     assert patched_lane["env_summary"]["min_x_strategy"]["mean_total"] >= current_lane["env_summary"]["min_x_strategy"]["mean_total"]
+
+
+def test_v4_production_router_policy_beats_current_and_failure_lanes() -> None:
+    benchmark = load_json(V4_BENCHMARK_PATH)
+    result = evaluate_benchmark(
+        benchmark,
+        {
+            "current_policy": {
+                **load_json(V4_CURRENT_PATH),
+                "_path": str(V4_CURRENT_PATH),
+            },
+            "production_router_policy": {
+                **load_json(V4_PRODUCTION_ROUTER_PATH),
+                "_path": str(V4_PRODUCTION_ROUTER_PATH),
+            },
+            "failure_policy": {
+                **load_json(V4_FAILURE_PATH),
+                "_path": str(V4_FAILURE_PATH),
+            },
+        },
+    )
+
+    current_lane = result["lanes"]["current_policy"]
+    production_lane = result["lanes"]["production_router_policy"]
+    failure_lane = result["lanes"]["failure_policy"]
+    assert result["benchmark_version"] == "v4_production_workflow"
+    assert result["task_count"] == 5
+    assert production_lane["lane_passed"] is True
+    assert production_lane["task_pass_count"] == 5
+    assert production_lane["mean_total"] >= 0.9
+    assert current_lane["lane_passed"] is False
+    assert failure_lane["lane_passed"] is False
+    assert production_lane["mean_total"] > current_lane["mean_total"] > failure_lane["mean_total"]
+    assert production_lane["env_summary"]["min_agentic_production_router"]["pass_rate"] == 1.0
 
 
 def test_markdown_report_contains_lane_summary() -> None:

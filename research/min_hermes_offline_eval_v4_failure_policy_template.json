@@ -1,0 +1,25 @@
+{
+  "version": "v4_production_workflow",
+  "answers": [
+    {
+      "task_id": "production-router-landing-build",
+      "answer": "작업분류: 좋은 결과를 만든다.\n선행경로: 필요한 것을 확인한다.\n실행표면: 알아서 진행한다.\n산출물: 결과를 만든다.\n검증: 확인한다.\n기록: 나중에 정리한다."
+    },
+    {
+      "task_id": "production-router-image-to-video",
+      "answer": "작업분류: 좋은 결과를 만든다.\n선행경로: 필요한 것을 확인한다.\n실행표면: 알아서 진행한다.\n산출물: 결과를 만든다.\n검증: 확인한다.\n기록: 나중에 정리한다."
+    },
+    {
+      "task_id": "production-router-figma-implementation",
+      "answer": "작업분류: 좋은 결과를 만든다.\n선행경로: 필요한 것을 확인한다.\n실행표면: 알아서 진행한다.\n산출물: 결과를 만든다.\n검증: 확인한다.\n기록: 나중에 정리한다."
+    },
+    {
+      "task_id": "production-router-codex-in-hermes",
+      "answer": "작업분류: 좋은 결과를 만든다.\n선행경로: 필요한 것을 확인한다.\n실행표면: 알아서 진행한다.\n산출물: 결과를 만든다.\n검증: 확인한다.\n기록: 나중에 정리한다."
+    },
+    {
+      "task_id": "production-router-obsidian-research",
+      "answer": "작업분류: 좋은 결과를 만든다.\n선행경로: 필요한 것을 확인한다.\n실행표면: 알아서 진행한다.\n산출물: 결과를 만든다.\n검증: 확인한다.\n기록: 나중에 정리한다."
+    }
+  ]
+}
