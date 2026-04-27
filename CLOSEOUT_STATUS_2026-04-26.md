@@ -62,3 +62,10 @@
 2. 별도 요청이 오기 전까지 current 를 억지로 production_router_policy 에 맞추지 않는다.
 3. 이후 민의 실제 제작 요청 샘플이 쌓이면 `research/production_router_actual_samples/` 아래에 새 런으로 추가 수집한다.
 4. 새 실패 패턴이 생기면 평가 세트와 스킬에 함께 반영한다.
+
+## 2026-04-28 운영 고정 반영
+
+- current 비승격 원칙은 `research/min_hermes_offline_eval_v4_operating_policy.md` 로 분리해 고정했다.
+- 실제 제작 요청 샘플 추가 절차는 `research/production_router_actual_samples/README.md` 에 기록했다.
+- `research/min_hermes_offline_eval_v4_production_workflow_spec.json` 에 current 보존, 샘플 누적, 실패 패턴 반영 정책 메타데이터를 추가했다.
+- 이 변경은 평가 의미를 바꾸지 않고 운영 절차만 고정한다.

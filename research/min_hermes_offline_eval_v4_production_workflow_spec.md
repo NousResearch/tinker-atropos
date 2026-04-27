@@ -5,6 +5,8 @@
 상태: 평가기 연결 및 점수판 생성 완료
 연결 제이슨: `research/min_hermes_offline_eval_v4_production_workflow_spec.json`
 점수판: `research/min_hermes_offline_eval_v4_scoreboard.md`, `research/min_hermes_offline_eval_v4_scoreboard.json`
+운영 고정 문서: `research/min_hermes_offline_eval_v4_operating_policy.md`
+실제 샘플 누적 절차: `research/production_router_actual_samples/README.md`
 
 ## 한줄 결론
 

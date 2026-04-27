@@ -1,7 +1,7 @@
 {
   "version": "v4_production_workflow",
   "created_at": "2026-04-26 00:52:02 AEST",
-  "status": "spec_not_yet_wired_to_evaluator",
+  "status": "evaluator_wired_and_operational",
   "primary_bottleneck": "agentic_production_routing_and_verification",
   "why_new_set_is_needed": "기존 min_business_strategy, min_x_strategy, min_landing_cro, min_membership_retention, min_agentic_research는 콘텐츠 퍼널 품질에는 강하지만, 피그마 엠시피, 디자인 엠디, 지피티 이미지 투, 럽아트 시댄스, 코덱스 씨엘아이, 알피 씨엘아이 게이트를 묶는 헤르메스 실행 라우팅 품질은 직접 평가하지 못한다.",
   "evidence_from_live_run": {
@@ -290,5 +290,30 @@
     "evaluate_min_hermes_offline_set.py가 새 env를 읽도록 ENV_REGISTRY에 추가한다.",
     "v4 scoreboard를 만들어 current가 어디서 빠지는지 확인한다."
   ],
-  "task_pass_threshold": 0.85
+  "task_pass_threshold": 0.85,
+  "current_policy_freeze_policy": {
+    "decision": "do_not_force_current_policy_to_match_production_router_policy",
+    "reason": "current_policy is the baseline that preserves the gap between the old general funnel and the v4 production router lane.",
+    "review_trigger": "only revisit if Min explicitly asks to redefine the baseline or if the benchmark task set changes materially."
+  },
+  "actual_sample_collection_policy": {
+    "root": "research/production_router_actual_samples",
+    "run_folder_pattern": "YYYY-MM-DD-hermes-live-guided-full",
+    "required_manifest": "manifest.json",
+    "rule": "add a new run folder; do not overwrite previous actual sample runs."
+  },
+  "failure_pattern_feedback_policy": {
+    "capture": [
+      "task_id",
+      "missing_terms",
+      "missing_verification",
+      "source_sample_path",
+      "scoreboard_path"
+    ],
+    "reflect_into": [
+      "research/min_hermes_offline_eval_v4_production_workflow_spec.json",
+      "relevant Hermes skill"
+    ],
+    "verification": "run the v4 production router pytest slice after updating benchmark or skill rules."
+  }
 }
