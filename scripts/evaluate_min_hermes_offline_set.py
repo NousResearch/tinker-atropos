@@ -5,6 +5,7 @@ import argparse
 import json
 import sys
 from collections import defaultdict
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -12,57 +13,36 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.append(str(REPO_ROOT))
 
-from tinker_atropos.environments.min_agentic_research_tinker import (  # noqa: E402
-    AGENTIC_RESEARCH_ITEMS,
-    score_research_answer,
-)
-from tinker_atropos.environments.min_agentic_production_router_tinker import (  # noqa: E402
-    AGENTIC_PRODUCTION_ROUTER_ITEMS,
-    score_production_router_answer,
-)
-from tinker_atropos.environments.min_business_strategy_tinker import (  # noqa: E402
-    BUSINESS_STRATEGY_ITEMS,
-    score_business_answer,
-)
-from tinker_atropos.environments.min_landing_cro_tinker import (  # noqa: E402
-    LANDING_CRO_ITEMS,
-    score_landing_answer,
-)
-from tinker_atropos.environments.min_membership_retention_tinker import (  # noqa: E402
-    MEMBERSHIP_RETENTION_ITEMS,
-    score_retention_answer,
-)
-from tinker_atropos.environments.min_x_strategy_tinker import (  # noqa: E402
-    X_STRATEGY_ITEMS,
-    score_x_answer,
-)
+@lru_cache(maxsize=None)
+def get_env_registry(env_name: str) -> dict[str, Any]:
+    if env_name == "min_business_strategy":
+        from tinker_atropos.environments.min_business_strategy_tinker import BUSINESS_STRATEGY_ITEMS, score_business_answer
 
-ENV_REGISTRY = {
-    "min_business_strategy": {
-        "items": BUSINESS_STRATEGY_ITEMS,
-        "score_fn": score_business_answer,
-    },
-    "min_x_strategy": {
-        "items": X_STRATEGY_ITEMS,
-        "score_fn": score_x_answer,
-    },
-    "min_landing_cro": {
-        "items": LANDING_CRO_ITEMS,
-        "score_fn": score_landing_answer,
-    },
-    "min_membership_retention": {
-        "items": MEMBERSHIP_RETENTION_ITEMS,
-        "score_fn": score_retention_answer,
-    },
-    "min_agentic_research": {
-        "items": AGENTIC_RESEARCH_ITEMS,
-        "score_fn": score_research_answer,
-    },
-    "min_agentic_production_router": {
-        "items": AGENTIC_PRODUCTION_ROUTER_ITEMS,
-        "score_fn": score_production_router_answer,
-    },
-}
+        return {"items": BUSINESS_STRATEGY_ITEMS, "score_fn": score_business_answer}
+    if env_name == "min_x_strategy":
+        from tinker_atropos.environments.min_x_strategy_tinker import X_STRATEGY_ITEMS, score_x_answer
+
+        return {"items": X_STRATEGY_ITEMS, "score_fn": score_x_answer}
+    if env_name == "min_landing_cro":
+        from tinker_atropos.environments.min_landing_cro_tinker import LANDING_CRO_ITEMS, score_landing_answer
+
+        return {"items": LANDING_CRO_ITEMS, "score_fn": score_landing_answer}
+    if env_name == "min_membership_retention":
+        from tinker_atropos.environments.min_membership_retention_tinker import MEMBERSHIP_RETENTION_ITEMS, score_retention_answer
+
+        return {"items": MEMBERSHIP_RETENTION_ITEMS, "score_fn": score_retention_answer}
+    if env_name == "min_agentic_research":
+        from tinker_atropos.environments.min_agentic_research_tinker import AGENTIC_RESEARCH_ITEMS, score_research_answer
+
+        return {"items": AGENTIC_RESEARCH_ITEMS, "score_fn": score_research_answer}
+    if env_name == "min_agentic_production_router":
+        from tinker_atropos.environments.min_agentic_production_router_tinker import (
+            AGENTIC_PRODUCTION_ROUTER_ITEMS,
+            score_production_router_answer,
+        )
+
+        return {"items": AGENTIC_PRODUCTION_ROUTER_ITEMS, "score_fn": score_production_router_answer}
+    raise KeyError(env_name)
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -84,7 +64,7 @@ def load_answer_map(bundle: dict[str, Any]) -> dict[str, str]:
 
 def evaluate_task(task: dict[str, Any], answer: str, task_pass_threshold: float) -> dict[str, Any]:
     env_name = task["env"]
-    registry = ENV_REGISTRY[env_name]
+    registry = get_env_registry(env_name)
     item = registry["items"][task["item_index"]]
     metrics = registry["score_fn"](answer, item)
     must_pass_metrics = task.get("must_pass_metrics", [])
