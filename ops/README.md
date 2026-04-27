@@ -6,7 +6,7 @@
 핵심 원칙
 - Hermes는 조종석이다.
 - Paperclip은 승인, 우선순위, 실패 감시, 요약만 맡는다.
-- `rp-cli` 는 복잡한 코드 조사 카드에서만 선택적으로 쓴다.
+- `rp-cli` 는 복잡한 코드 조사 카드에서만 선택적으로 쓴다. 현재 RepoPrompt CLI 에서는 legacy `rp-cli build` 대신 `builder --type plan` 출력 리다이렉션으로 컨텍스트 파일을 만들고, `codex exec` 는 그 파일을 stdin 으로 받는다. Hermes repo 에 정확히 붙일 때는 RepoPrompt window 2 (`hermes-agent`, `/Users/heomin/.hermes/hermes-agent`) 를 명시해 `rp-cli -w 2 -e ...` 형태로 호출한다.
 - 장시간 학습은 항상 외부 백그라운드로 돌린다.
 - Paperclip API 호출은 인증된 컬 표준으로 통일한다.
 

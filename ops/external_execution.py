@@ -34,6 +34,21 @@ def _timestamp() -> str:
     return datetime.now().strftime('%Y%m%d-%H%M%S')
 
 
+def _repo_prompt_builder_instruction(prompt: str, targets: list[str]) -> str:
+    target_text = ', '.join(targets)
+    return (
+        'Build a focused plan/context for this Hermes external execution task. '
+        f'Task prompt: {prompt}. '
+        f'Relevant targets: {target_text}. '
+        'Keep the output concise and useful for a downstream codex exec stdin context run.'
+    )
+
+
+def _repo_prompt_quote(value: str) -> str:
+    compact = ' '.join(value.split())
+    return '"' + compact.replace('\\', '\\\\').replace('"', '\\"') + '"'
+
+
 
 def build_execution_plan(spec: ExecutionSpec) -> dict:
     stamp = _timestamp()
@@ -44,18 +59,26 @@ def build_execution_plan(spec: ExecutionSpec) -> dict:
 
     targets = spec.targets or []
     if spec.use_rp and targets:
-        target_flags = ' '.join(f'--target {shlex.quote(target)}' for target in targets)
+        builder_command = (
+            'builder '
+            f'{_repo_prompt_quote(_repo_prompt_builder_instruction(spec.prompt, targets))} '
+            f'--type plan > {shlex.quote(str(context_path.relative_to(spec.workdir)))}'
+        )
         steps.append(
             {
                 'kind': 'rp',
-                'command': f'rp-cli build --repo . {target_flags} --output {shlex.quote(str(context_path.relative_to(spec.workdir)))}',
+                'command': f'rp-cli -e {shlex.quote(builder_command)}',
             }
         )
 
     codex_parts = ['codex exec']
     if spec.use_rp and targets:
-        codex_parts.append(f'--context {shlex.quote(str(context_path.relative_to(spec.workdir)))}')
+        context_arg = shlex.quote(str(context_path.relative_to(spec.workdir)))
+    else:
+        context_arg = None
     codex_parts.append(shlex.quote(spec.prompt))
+    if context_arg:
+        codex_parts.append(f'< {context_arg}')
     steps.append({'kind': 'codex', 'command': ' '.join(codex_parts)})
 
     if spec.test_command:
