@@ -9,6 +9,7 @@ ENV_SPECS = [
     ('min_landing_cro', 'outputs/landing'),
     ('min_membership_retention', 'outputs/retention'),
     ('min_agentic_research', 'outputs/business'),
+    ('min_design_system_operator', 'outputs/design-system-operator-current-provider'),
 ]
 
 
