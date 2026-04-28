@@ -1,0 +1,319 @@
+{
+  "version": "v4_production_workflow",
+  "created_at": "2026-04-26 00:52:02 AEST",
+  "status": "evaluator_wired_and_operational",
+  "primary_bottleneck": "agentic_production_routing_and_verification",
+  "why_new_set_is_needed": "기존 min_business_strategy, min_x_strategy, min_landing_cro, min_membership_retention, min_agentic_research는 콘텐츠 퍼널 품질에는 강하지만, 피그마 엠시피, 디자인 엠디, 지피티 이미지 투, 럽아트 시댄스, 코덱스 씨엘아이, 알피 씨엘아이 게이트를 묶는 헤르메스 실행 라우팅 품질은 직접 평가하지 못한다.",
+  "evidence_from_live_run": {
+    "input_file": "inputs/hermes-agent-production-upgrade-2026-04-26.txt",
+    "command": "../venv/bin/python run_research_to_full_funnel.py inputs/hermes-agent-production-upgrade-2026-04-26.txt --save --project hermes-agent-production-upgrade-2026-04-26 --preset ordinarybiz --selection-mode reward",
+    "output_root": "outputs/2026-04-26/hermes-agent-production-upgrade-2026-04-26",
+    "observed_gap": "입력에는 헤르메스, 코덱스 씨엘아이, 알피 씨엘아이, 피그마 엠시피, 디자인 엠디, 지피티 이미지 투, 럽아트 시댄스가 들어갔지만, 풀 퍼널 결과는 일반적인 신뢰 근거 제안과 후기 블록 위치 실험으로 압축되었다. 즉 현재 퍼널 러너는 민의 에이전트 운영 개선 연구를 콘텐츠 전환 문제로 오분류한다.",
+    "quality_report": "outputs/2026-04-26/hermes-agent-production-upgrade-2026-04-26/summary/hermes-agent-production-upgrade-2026-04-26-quality-comparison-20260426-005233.md"
+  },
+  "target_policy_name": "hermes_min_production_router",
+  "comparison_lanes": [
+    "current_policy",
+    "production_router_policy",
+    "failure_policy"
+  ],
+  "lane_pass_thresholds": {
+    "mean_total": 0.9,
+    "pass_rate": 1.0,
+    "min_env_mean": 0.9
+  },
+  "global_success_rules": [
+    "요청 유형을 콘텐츠 퍼널 문제와 제작 운영 문제로 구분한다.",
+    "코드, 저장소, 랜딩페이지 작업에는 알피 씨엘아이 게이트를 먼저 둔다.",
+    "피그마 작업에는 figma-use 선행을 명시한다.",
+    "디자인 엠디는 디자인 창작물이 아니라 토큰과 결정 계약서로 다룬다.",
+    "이미지 작업에는 openai-codex-gpt-image-2-workflow를 기본 경로로 둔다.",
+    "럽아트와 시댄스 영상 작업은 학습 질문, 기준군, 변형, 점수표, 다음 변수까지 기록한다.",
+    "코덱스 씨엘아이는 실행 엔진이고 헤르메스가 수락 기준과 검증을 책임진다.",
+    "완료 보고에는 산출물 경로와 검증 근거가 있어야 한다."
+  ],
+  "scoring_dimensions": [
+    {
+      "name": "routing_accuracy",
+      "weight": 0.2,
+      "good": "요청을 웹, 이미지, 영상, 피그마, 코드, 기록, 연구 평가 중 알맞은 경로로 분류한다.",
+      "bad": "모든 요청을 일반 콘텐츠 전략이나 계획 답변으로 처리한다."
+    },
+    {
+      "name": "prerequisite_gate_compliance",
+      "weight": 0.18,
+      "good": "알피 씨엘아이, 큐엠디, 피그마 유즈, 이미지 스킬 같은 선행 경로를 빠뜨리지 않는다.",
+      "bad": "기억이나 추측만으로 진행한다."
+    },
+    {
+      "name": "execution_surface_choice",
+      "weight": 0.14,
+      "good": "헤르메스 직접 실행, 코덱스 씨엘아이, 브라우저, 옵시디언, 페이퍼클립 중 알맞은 표면을 고른다.",
+      "bad": "코덱스 완료 메시지나 스킬 이름만 믿고 검증을 생략한다."
+    },
+    {
+      "name": "artifact_contract",
+      "weight": 0.16,
+      "good": "파일, 링크, 로그, 점수표, 디자인 계약서, 브라우저 스크린샷 같은 다음 단계 산출물을 명시한다.",
+      "bad": "산출물 위치가 없거나 추적할 파일이 없다."
+    },
+    {
+      "name": "verification_strength",
+      "weight": 0.18,
+      "good": "테스트, 빌드, 브라우저, 파일 존재, 큐엠디 조회, 점수표 중 실제 검증을 닫는다.",
+      "bad": "증거 없는 완료 보고를 한다."
+    },
+    {
+      "name": "learning_loop_capture",
+      "weight": 0.14,
+      "good": "실패 패턴과 성공 규칙을 옵시디언, 스킬, 티커 평가 세트로 되먹인다.",
+      "bad": "그때그때 처리하고 기록하지 않는다."
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "production-router-landing-build",
+      "title": "웹사이트 제작 요청 라우팅",
+      "prompt": "새 랜딩페이지를 만들고 싶다. 피그마 시안, 디자인 엠디, 지피티 이미지 투 이미지, 코덱스 씨엘아이 구현, 브라우저 검증까지 연결해줘.",
+      "must_include": [
+        "알피 씨엘아이",
+        "DESIGN.md",
+        "figma-use",
+        "코덱스 씨엘아이",
+        "브라우저 검증",
+        "빌드"
+      ],
+      "failure_signals": [
+        "디자인 엠디만 만들고 끝낸다",
+        "피그마 선행을 빼먹는다",
+        "브라우저 검증 없이 완료한다"
+      ],
+      "env": "min_agentic_production_router",
+      "item_index": 0,
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "routing_accuracy",
+          "min": 0.75
+        },
+        {
+          "metric": "prerequisite_gate_compliance",
+          "min": 0.75
+        },
+        {
+          "metric": "artifact_contract",
+          "min": 0.7
+        },
+        {
+          "metric": "verification_strength",
+          "min": 0.7
+        }
+      ]
+    },
+    {
+      "task_id": "production-router-image-to-video",
+      "title": "지피티 이미지 투에서 시댄스 영상까지 이어지는 요청 라우팅",
+      "prompt": "지피티 이미지 투로 제품 이미지를 만들고, 럽아트에서 시댄스 이점영 영상까지 실험해줘.",
+      "must_include": [
+        "openai-codex-gpt-image-2-workflow",
+        "파일 존재",
+        "럽아트",
+        "시댄스",
+        "점수표",
+        "다음 변수"
+      ],
+      "failure_signals": [
+        "이미지 생성만 하고 영상 학습 질문이 없다",
+        "모델과 파일 경로가 없다",
+        "Keep Remove Next variable이 없다"
+      ],
+      "env": "min_agentic_production_router",
+      "item_index": 1,
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "routing_accuracy",
+          "min": 0.75
+        },
+        {
+          "metric": "prerequisite_gate_compliance",
+          "min": 0.75
+        },
+        {
+          "metric": "artifact_contract",
+          "min": 0.7
+        },
+        {
+          "metric": "verification_strength",
+          "min": 0.7
+        }
+      ]
+    },
+    {
+      "task_id": "production-router-figma-implementation",
+      "title": "피그마 구현 요청 라우팅",
+      "prompt": "피그마 파일을 기준으로 지금 웹 앱 화면을 맞춰줘. 디자인 엠디도 같이 써줘.",
+      "must_include": [
+        "figma-use",
+        "스크린샷",
+        "디자인 문맥",
+        "DESIGN.md",
+        "드리프트",
+        "코드 반영"
+      ],
+      "failure_signals": [
+        "피그마 값을 임의 추측한다",
+        "디자인 계약과 충돌 여부를 기록하지 않는다",
+        "화면 비교가 없다"
+      ],
+      "env": "min_agentic_production_router",
+      "item_index": 2,
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "routing_accuracy",
+          "min": 0.75
+        },
+        {
+          "metric": "prerequisite_gate_compliance",
+          "min": 0.75
+        },
+        {
+          "metric": "artifact_contract",
+          "min": 0.7
+        },
+        {
+          "metric": "verification_strength",
+          "min": 0.7
+        }
+      ]
+    },
+    {
+      "task_id": "production-router-codex-in-hermes",
+      "title": "헤르메스 안 코덱스 씨엘아이 실행 요청 라우팅",
+      "prompt": "이 저장소 버그를 코덱스로 고쳐줘. 헤르메스가 알아서 검증해줘.",
+      "must_include": [
+        "알피 씨엘아이",
+        "수락 기준",
+        "코덱스 씨엘아이",
+        "변경 파일",
+        "테스트",
+        "헤르메스 최종 검토"
+      ],
+      "failure_signals": [
+        "코덱스에게만 맡기고 끝낸다",
+        "테스트가 없다",
+        "변경 파일 확인이 없다"
+      ],
+      "env": "min_agentic_production_router",
+      "item_index": 3,
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "routing_accuracy",
+          "min": 0.75
+        },
+        {
+          "metric": "prerequisite_gate_compliance",
+          "min": 0.75
+        },
+        {
+          "metric": "artifact_contract",
+          "min": 0.7
+        },
+        {
+          "metric": "verification_strength",
+          "min": 0.7
+        }
+      ]
+    },
+    {
+      "task_id": "production-router-obsidian-research",
+      "title": "연구 결과 옵시디언 기록 요청 라우팅",
+      "prompt": "최근 작업 변화를 바탕으로 헤르메스를 민에게 더 맞게 개선하는 연구를 진행해줘.",
+      "must_include": [
+        "큐엠디",
+        "알피 씨엘아이",
+        "티커 아트로포스",
+        "옵시디언 노트",
+        "평가 세트",
+        "검증 근거"
+      ],
+      "failure_signals": [
+        "계획만 말한다",
+        "기존 노트를 찾지 않는다",
+        "연구 산출물이 파일로 남지 않는다"
+      ],
+      "env": "min_agentic_production_router",
+      "item_index": 4,
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "routing_accuracy",
+          "min": 0.75
+        },
+        {
+          "metric": "prerequisite_gate_compliance",
+          "min": 0.75
+        },
+        {
+          "metric": "artifact_contract",
+          "min": 0.7
+        },
+        {
+          "metric": "verification_strength",
+          "min": 0.7
+        }
+      ]
+    }
+  ],
+  "recommended_next_implementation": [
+    "새 환경 후보 min_agentic_production_router_tinker.py를 만든다.",
+    "위 다섯 task를 AGENTIC_PRODUCTION_ROUTER_ITEMS로 옮긴다.",
+    "score 함수는 routing_accuracy, prerequisite_gate_compliance, execution_surface_choice, artifact_contract, verification_strength, learning_loop_capture를 채점한다.",
+    "현재 정책 답안, 개선 정책 답안, 실패 정책 답안 번들을 만든다.",
+    "evaluate_min_hermes_offline_set.py가 새 env를 읽도록 ENV_REGISTRY에 추가한다.",
+    "v4 scoreboard를 만들어 current가 어디서 빠지는지 확인한다."
+  ],
+  "task_pass_threshold": 0.85,
+  "current_policy_freeze_policy": {
+    "decision": "do_not_force_current_policy_to_match_production_router_policy",
+    "reason": "current_policy is the baseline that preserves the gap between the old general funnel and the v4 production router lane.",
+    "review_trigger": "only revisit if Min explicitly asks to redefine the baseline or if the benchmark task set changes materially."
+  },
+  "actual_sample_collection_policy": {
+    "root": "research/production_router_actual_samples",
+    "run_folder_pattern": "YYYY-MM-DD-hermes-live-guided-full",
+    "required_manifest": "manifest.json",
+    "rule": "add a new run folder; do not overwrite previous actual sample runs."
+  },
+  "failure_pattern_feedback_policy": {
+    "capture": [
+      "task_id",
+      "missing_terms",
+      "missing_verification",
+      "source_sample_path",
+      "scoreboard_path"
+    ],
+    "reflect_into": [
+      "research/min_hermes_offline_eval_v4_production_workflow_spec.json",
+      "relevant Hermes skill"
+    ],
+    "verification": "run the v4 production router pytest slice after updating benchmark or skill rules."
+  }
+}

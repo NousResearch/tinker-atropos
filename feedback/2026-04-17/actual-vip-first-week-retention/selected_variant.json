@@ -1,0 +1,17 @@
+{
+  "preset": "vip",
+  "project": "actual-vip-first-week-retention",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "운영자가 바로 보낼 체크인 한 줄",
+    "라이브 참여 신청 헤드라인"
+  ],
+  "published_assets": {
+    "x": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-vip-first-week-retention/summary/vip-first-week-retention-final-20260417-153034.json",
+    "landing": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-vip-first-week-retention/summary/vip-first-week-retention-final-20260417-153034.json",
+    "retention": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-vip-first-week-retention/summary/vip-first-week-retention-final-20260417-153034.json"
+  }
+}

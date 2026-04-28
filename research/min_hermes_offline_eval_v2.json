@@ -1,0 +1,295 @@
+{
+  "version": "v2",
+  "primary_bottleneck": "policy_discrimination_restored",
+  "mission_closest_to": "patched_policy_promotion_gate",
+  "task_pass_threshold": 0.95,
+  "lane_pass_thresholds": {
+    "mean_total": 0.97,
+    "pass_rate": 1.0,
+    "min_env_mean": 0.97
+  },
+  "comparison_lanes": [
+    "current_policy",
+    "patched_policy"
+  ],
+  "task_selection_principle": "기존 v1에서 포화된 과제를 빼고 current와 patched의 실제 점수 차이가 남아 있는 꼬리 과제만 다시 골랐다.",
+  "tri_comparison_protocol": [
+    "같은 task_id 순서로 current_policy와 patched_policy 답안을 준비한다.",
+    "각 lane은 동일 task_id에 대해 하나의 답만 제출한다.",
+    "task total, gate metric, env mean, 전체 pass_rate를 함께 본다.",
+    "patched_policy가 current_policy보다 mean_total, task_pass_count, 각 env mean에서 모두 앞설 때만 승격 후보로 본다."
+  ],
+  "tasks": [
+    {
+      "task_id": "biz-google-ads-low-risk",
+      "env": "min_business_strategy",
+      "item_index": 3,
+      "title": "구글 광고 재가동 전 저위험 전략 설계",
+      "why_it_matters": "광고 재가동 전에 초보자 친화성과 제안 정렬이 실제로 있는지 본다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "beginner_friendliness", "min": 0.8},
+        {"metric": "channel_fit", "min": 1.0},
+        {"metric": "proposal_alignment", "min": 0.8}
+      ],
+      "success_rules": [
+        "광고 문구와 랜딩 문구가 실제 채널 안에서 연결된다.",
+        "초보자도 바로 이해할 쉬운 한 가지 제안이 보인다.",
+        "이번 주 바로 돌릴 실험과 비용형 지표가 같이 보인다."
+      ],
+      "failure_signals": [
+        "채널은 말하지만 제안이 채널 문장에 안 붙는다.",
+        "쉬운 말과 한 가지 우선안이 약하다."
+      ]
+    },
+    {
+      "task_id": "biz-youtube-telegram-bridge",
+      "env": "min_business_strategy",
+      "item_index": 5,
+      "title": "유튜브에서 텔레그램으로 넘어가는 중간 다리 전략",
+      "why_it_matters": "유튜브와 텔레그램 사이에 실제로 쉬운 행동 다리가 생기는지 본다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "beginner_friendliness", "min": 0.8},
+        {"metric": "channel_fit", "min": 1.0},
+        {"metric": "proposal_alignment", "min": 1.0}
+      ],
+      "success_rules": [
+        "유튜브 설명란과 텔레그램 합류 보상이 같은 문장 흐름으로 이어진다.",
+        "체크리스트 같은 쉬운 첫 행동이 분명하다.",
+        "채널 유입과 참여율을 같이 본다."
+      ],
+      "failure_signals": [
+        "메시지는 있는데 쉬운 첫 행동이 약하다.",
+        "채널 연결은 있지만 초보자 친화성이 약하다."
+      ]
+    },
+    {
+      "task_id": "biz-live-replay-loop",
+      "env": "min_business_strategy",
+      "item_index": 6,
+      "title": "라이브 참여와 리플레이 재참여 루프 설계",
+      "why_it_matters": "사전 기대감과 사후 재참여를 한 흐름으로 묶는 능력을 본다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "beginner_friendliness", "min": 0.8},
+        {"metric": "channel_fit", "min": 1.0},
+        {"metric": "proposal_alignment", "min": 0.8}
+      ],
+      "success_rules": [
+        "텔레그램 안내와 리플레이 흐름이 하나의 제안으로 붙는다.",
+        "멤버가 바로 이해할 쉬운 메시지가 있다.",
+        "라이브 참여율과 재시청률이 같이 나온다."
+      ],
+      "failure_signals": [
+        "리마인드와 리플레이가 따로 놀고 제안 정렬이 약하다.",
+        "운영자 관점 문장인데 멤버 친화성이 약하다."
+      ]
+    },
+    {
+      "task_id": "biz-brand-collab-structure",
+      "env": "min_business_strategy",
+      "item_index": 7,
+      "title": "브랜드 신뢰를 지키는 협업 제안 구조",
+      "why_it_matters": "브랜드 협업처럼 초보자 친화성과 채널 적합성이 동시에 필요한 전략이다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "beginner_friendliness", "min": 0.8},
+        {"metric": "channel_fit", "min": 1.0},
+        {"metric": "proposal_alignment", "min": 0.8}
+      ],
+      "success_rules": [
+        "브랜드 신뢰와 협업 패키지가 실제 채널 문장으로 붙는다.",
+        "과장 없이 이해되는 쉬운 구조가 보인다.",
+        "응답률과 계약 전환율이 함께 나온다."
+      ],
+      "failure_signals": [
+        "브랜드와 패키지를 말하지만 채널 연결이 흐리다.",
+        "제안 구조가 추상적이라 바로 복붙하기 어렵다."
+      ]
+    },
+    {
+      "task_id": "biz-sydney-action-note",
+      "env": "min_business_strategy",
+      "item_index": 8,
+      "title": "시드니 맥락 해외 사례 액션 노트 상품화",
+      "why_it_matters": "현지성, 제안 정렬, 초보자 친화성을 동시에 요구하는 전략 과제다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "beginner_friendliness", "min": 0.8},
+        {"metric": "channel_fit", "min": 1.0},
+        {"metric": "proposal_alignment", "min": 0.8}
+      ],
+      "success_rules": [
+        "시드니와 해외 사례가 액션 노트 제안으로 실제로 연결된다.",
+        "해외 사례 자랑이 아니라 바로 적용할 한 가지가 보인다.",
+        "브리핑 신청과 후속 상담 전환이 함께 나온다."
+      ],
+      "failure_signals": [
+        "현지성만 있고 제안 정렬이 없다.",
+        "채널 적합성과 쉬운 말이 약하다."
+      ]
+    },
+    {
+      "task_id": "biz-gws-time-saving",
+      "env": "min_business_strategy",
+      "item_index": 9,
+      "title": "구글 워크스페이스 시간 절약 상품 제안",
+      "why_it_matters": "시간 절약형 교육 상품은 초보자 친화성과 제안 정렬이 핵심이다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "beginner_friendliness", "min": 0.8},
+        {"metric": "channel_fit", "min": 1.0},
+        {"metric": "proposal_alignment", "min": 0.8}
+      ],
+      "success_rules": [
+        "시간 절약 가치가 실제 세팅 세션 제안으로 바로 붙는다.",
+        "기술 자랑이 아니라 쉬운 입문 문장으로 쓴다.",
+        "세션 신청과 입문 상품 클릭을 같이 본다."
+      ],
+      "failure_signals": [
+        "도구 이름만 있고 제안 정렬이 약하다.",
+        "초보자 친화 문장이 부족하다."
+      ]
+    },
+    {
+      "task_id": "biz-youtube-longterm-collab",
+      "env": "min_business_strategy",
+      "item_index": 10,
+      "title": "유튜브 장기 테스트형 협업 구조",
+      "why_it_matters": "협업을 장기 테스트 구조로 바꾸는 전략은 신뢰와 채널 적합성을 같이 본다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "beginner_friendliness", "min": 0.8},
+        {"metric": "channel_fit", "min": 1.0},
+        {"metric": "proposal_alignment", "min": 0.8}
+      ],
+      "success_rules": [
+        "유튜브 협업과 장기 테스트 제안이 실제 채널 문장 안에 붙는다.",
+        "신뢰 훼손을 막는 쉬운 한 가지 기준이 보인다.",
+        "댓글 반응과 재계약 지표가 함께 나온다."
+      ],
+      "failure_signals": [
+        "장기 테스트를 말하지만 제안 정렬이 약하다.",
+        "초보자 친화 문장과 채널 연결이 약하다."
+      ]
+    },
+    {
+      "task_id": "landing-brand-collab-inquiry",
+      "env": "min_landing_cro",
+      "item_index": 4,
+      "title": "기업 협업 문의 랜딩 개선",
+      "why_it_matters": "문의 전환형 랜딩은 지표 문장 완성도가 실제 차이를 만든다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "copy_quality", "min": 1.0},
+        {"metric": "experiment_quality", "min": 1.0},
+        {"metric": "metric_quality", "min": 0.8}
+      ],
+      "success_rules": [
+        "협업과 신뢰와 사례가 첫 화면 카피에서 같이 보인다.",
+        "실험 문장이 실제 비교 실험으로 적혀 있다.",
+        "문의 전환율, 미팅 성사, 응답률이 지표에 살아 있다."
+      ],
+      "failure_signals": [
+        "카피는 그럴듯하지만 지표 문장이 빈약하다.",
+        "문의형 랜딩인데 수치 설계가 약하다."
+      ]
+    },
+    {
+      "task_id": "landing-live-session-signup",
+      "env": "min_landing_cro",
+      "item_index": 5,
+      "title": "라이브 참여 신청 랜딩 개선",
+      "why_it_matters": "신청형 랜딩은 리플레이와 참여 지표까지 함께 설계해야 한다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "copy_quality", "min": 1.0},
+        {"metric": "experiment_quality", "min": 1.0},
+        {"metric": "metric_quality", "min": 0.8}
+      ],
+      "success_rules": [
+        "라이브와 리플레이와 참여가 카피에서 같이 보인다.",
+        "실험은 첫 화면과 버튼을 비교하는 실제 문장이다.",
+        "신청 전환율, 참여율, 리플레이 시청률이 함께 있다."
+      ],
+      "failure_signals": [
+        "신청형 랜딩인데 지표 문장이 부족하다.",
+        "카피는 좋지만 리플레이 지표가 약하다."
+      ]
+    },
+    {
+      "task_id": "x-ailit-entry-link",
+      "env": "min_x_strategy",
+      "item_index": 3,
+      "title": "Ailit 입문 상품 첫 행동 유도 X 글",
+      "why_it_matters": "상담보다 쉬운 첫 행동을 한 가지로 못 박는 능력을 본다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "hook_strength", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "single_action_clarity", "min": 1.0}
+      ],
+      "success_rules": [
+        "첫 행동이 입문 상품 링크 한 가지로 분명하다.",
+        "후크와 행동유도가 같은 한 가지로 모인다.",
+        "허풍 없이 바로 눌러볼 행동이 보인다."
+      ],
+      "failure_signals": [
+        "행동유도는 있지만 한 가지 행동으로 못 박히지 않는다.",
+        "상담과 링크 사이에서 초점이 흐린다."
+      ]
+    },
+    {
+      "task_id": "x-vip-reactivation-checkin",
+      "env": "min_x_strategy",
+      "item_index": 8,
+      "title": "VIP 재참여 체크인 X 글",
+      "why_it_matters": "운영자가 오늘 보낼 한 줄 체크인을 떠올리게 만드는지가 핵심이다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "hook_strength", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "single_action_clarity", "min": 1.0}
+      ],
+      "success_rules": [
+        "오늘 보낼 체크인 한 줄이라는 행동이 분명하다.",
+        "운영자 시점에서 바로 복붙 가능한 행동유도가 있다.",
+        "후크와 댓글유도가 재참여 문제를 바로 찌른다."
+      ],
+      "failure_signals": [
+        "체크인 필요성은 말하지만 한 가지 행동이 흐리다.",
+        "운영자 관점 복붙성이 약하다."
+      ]
+    },
+    {
+      "task_id": "x-landing-headline-conversion",
+      "env": "min_x_strategy",
+      "item_index": 9,
+      "title": "랜딩 헤드라인 한 줄 전환 X 글",
+      "why_it_matters": "오늘 당장 헤드라인 한 줄을 바꾸게 만드는지 본다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "hook_strength", "min": 1.0},
+        {"metric": "actionability", "min": 1.0},
+        {"metric": "single_action_clarity", "min": 1.0}
+      ],
+      "success_rules": [
+        "행동유도가 헤드라인 한 줄 변경 하나로 모인다.",
+        "후크가 랜딩 첫 문장 문제를 바로 찌른다.",
+        "오늘 바로 바꿔볼 행동이 분명하다."
+      ],
+      "failure_signals": [
+        "랜딩 문제 설명은 있지만 한 가지 행동이 흐리다.",
+        "행동유도가 두 갈래 이상으로 퍼진다."
+      ]
+    }
+  ]
+}

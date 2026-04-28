@@ -1,0 +1,18 @@
+*** Begin Patch
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_x_loop.py
+@@
+# strengthen candidate: 설명란과 이어지는 행동 문장 (1회)
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_landing_loop.py
+@@
+# strengthen candidate: 유튜브 시청자용 헤드라인 (1회)
+# strengthen candidate: 상담 전환을 바로 말하는 headline (1회)
+# strengthen candidate: 신뢰 근거를 먼저 보여주는 headline (1회)
+# penalize candidate: 긴 설명형 본문 (1회)
+# penalize candidate: 두 단계로 읽히는 CTA (1회)
+# penalize candidate: 추상적인 신뢰 표현 (1회)
+# penalize candidate: 길게 이어지는 retention 미션 문장 (1회)
+# penalize candidate: 긴 설명형 서브카피 (1회)
+*** Update File: /Users/heomin/.hermes/hermes-agent/tinker-atropos/build_business_to_retention_loop.py
+@@
+# strengthen candidate: Ailit 체크인 문구 (1회)
+*** End Patch

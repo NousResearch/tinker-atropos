@@ -1,0 +1,34 @@
+{
+  "version": "v4_production_workflow",
+  "lane": "actual_hermes_live_guided_full",
+  "benchmark_path": "research/min_hermes_offline_eval_v4_production_workflow_spec.json",
+  "answer_dir": "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full",
+  "answers": [
+    {
+      "task_id": "production-router-landing-build",
+      "answer": "작업분류:\n웹사이트, 랜딩, 코드, 피그마 제작 요청으로 분류한다. 새 랜딩페이지 제작은 디자인 문맥 정리부터 구현과 브라우저 검증까지 닫는 빌드 작업이다.\n선행경로:\n알피 씨엘아이로 현재 저장소와 작업 루트를 먼저 확인한다. DESIGN.md를 디자인 문맥의 기준 파일로 만들거나 갱신한다. 피그마 시안 작업 전에는 figma-use를 선행 로드하고, 피그마 파일의 기존 토큰, 컴포넌트, 레이아웃을 읽어 DESIGN.md와 드리프트를 확인한다.\n실행표면:\n헤르메스가 전체 라우터로 움직인다. 피그마 시안은 figma-use 기반으로 다루고, 이미지 방향성이나 지피티 이미지 투 작업은 openai-codex-gpt-image-2-workflow로 처리한다. 코드 구현은 코덱스 씨엘아이로 맡기고, 헤르메스가 구현 결과를 다시 검증한다.\n산출물:\n변경 파일, DESIGN.md, 이미지 파일, 지피티 이미지 투 프롬프트, 피그마 기준 스크린샷, 구현 후 브라우저 스크린샷, 디자인과 코드 사이의 드리프트 기록을 남긴다.\n검증:\n빌드, 테스트, 브라우저 검증을 반드시 돌린다. 변경 파일과 이미지 파일의 파일 존재 여부를 확인하고, 스크린샷으로 랜딩페이지 화면을 확인한 뒤에만 완료 보고한다.\n기록:\n옵시디언에 제작 라우팅 결과를 남긴다. 티커 아트로포스 평가 세트에는 이번 랜딩 제작 흐름의 실패 패턴과 성공 규칙을 기록해서 다음 웹사이트, 랜딩, 코드, 피그마 작업의 재사용 기준으로 삼는다.",
+      "source_path": "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-landing-build.md"
+    },
+    {
+      "task_id": "production-router-image-to-video",
+      "answer": "작업분류:\n이미지 → 영상 연결 실험. 지피티 이미지 투로 제품 이미지 기준군을 만들고, 럽아트에서 시댄스 영상 변형까지 이어지는 제작 라우팅이다. 작업분류는 이미지, 영상, 럽아트, 시댄스 실험으로 닫는다.\n선행경로:\nopenai-codex-gpt-image-2-workflow를 먼저 적용한다. 지피티 이미지 투 생성 전 프롬프트를 고정하고, 생성 뒤에는 파일 존재를 확인한다. 그다음 해당 이미지 파일을 럽아트 참조로 넘겨 시댄스 실험 프롬프트를 만든다.\n실행표면:\n1. 이미지 생성: openai-codex-gpt-image-2-workflow로 제품 이미지 생성\n2. 럽아트: 생성된 제품 이미지를 참조 이미지로 업로드\n3. 시댄스: 럽아트 안에서 시댄스 이점영 영상 생성\n4. 영상 변형: 기준군 하나와 변형 하나 이상 실행\n5. 변형 기준: 카메라, 움직임, 제품 고정 문장, 마지막 장면 중 다음 변수 하나만 바꿈\n산출물:\n이미지 파일, 영상, 링크, 프롬프트, 점수표를 남긴다. 이미지 파일은 절대 경로로 남기고, 럽아트 결과는 영상 링크 또는 저장 파일로 남긴다. 프롬프트는 이미지 생성용과 시댄스 영상용을 분리해서 기록한다. 점수표에는 제품 충실도, 장면 선명도, 카메라 자연스러움, 움직임 설득력, 마지막 장면 힘, 사업 활용도를 넣는다.\n검증:\n파일 존재를 확인한다. 이미지 파일은 크기를 확인하고, 시각 확인으로 제품 이미지가 의도와 맞는지 본다. 럽아트 시댄스 영상은 결과 링크 또는 저장본을 확인하고, 점수표를 작성한다. 최종 결과는 파일 존재, 크기, 시각 확인, 점수표, 결과 링크 또는 영상 파일까지 있어야 완료로 본다.\n기록:\n학습 질문: 지피티 이미지 투 제품 이미지를 참조로 넣었을 때 럽아트 시댄스 영상의 제품 일관성이 유지되는가.\n기준군: 원본 제품 이미지와 기본 시댄스 프롬프트.\n변형: 다음 변수 하나만 바꾼 영상 버전.\n유지할 것: 제품 형태, 로고나 핵심 특징, 마지막 영웅 장면, 짧은 세 박자 구조.\n버릴 것: 과한 배경, 긴 설명, 여러 카메라 움직임 동시 지시, 제품을 흐리는 장식.\n다음 변수: 카메라 움직임, 제품 고정 문장, 손 사용 장면, 마지막 장면 구도 중 하나를 다음 실험 변수로 잡는다.",
+      "source_path": "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-image-to-video.md"
+    },
+    {
+      "task_id": "production-router-figma-implementation",
+      "answer": "작업분류:\n피그마 기준 웹 앱 화면 맞춤 작업이다. 작업분류는 피그마, 웹 앱, 화면, 디자인 구현이다.\n선행경로:\nfigma-use를 먼저 열고 피그마 디자인 문맥을 가져온다. 같은 노드의 스크린샷을 확보한 뒤, 저장소의 DESIGN.md를 읽어 디자인 문맥과 토큰 기준을 맞춘다. 피그마와 DESIGN.md가 다르면 드리프트로 기록하고 어느 쪽을 기준으로 삼을지 명시한다.\n실행표면:\n코드 반영은 저장소에서 한다. 구현은 기존 컴포넌트 재사용을 우선하고, 피그마 토큰과 DESIGN.md 토큰을 맞춰서 색상, 간격, 글꼴, 둥근값을 반영한다. 새 컴포넌트가 필요하면 기존 규칙에 맞춰 추가하고, 하드코딩 대신 토큰으로 연결한다.\n산출물:\n산출물은 피그마 스크린샷, 대상 노드 목록, 디자인 문맥 요약, 드리프트 로그, 변경 파일 목록, 갱신 또는 신규 DESIGN.md다. 코드 반영 결과와 함께 어떤 컴포넌트가 바뀌었는지도 남긴다.\n검증:\n브라우저에서 실제 웹 앱을 열고 피그마 스크린샷과 화면 비교를 한다. 린트와 빌드를 실행하고, DESIGN.md 기준에서 토큰 드리프트가 남았는지 확인한다. 화면 비교에서 간격, 글꼴, 색상, 정렬, 반응형이 맞지 않으면 다시 코드 반영한다.\n기록:\n옵시디언에 피그마 노드, 스크린샷 기준, 디자인 계약, DESIGN.md 변경 이유, 드리프트 판단, 실패 패턴을 기록한다. 반복 가능한 절차나 새로 발견한 실패 패턴은 스킬로 저장하거나 기존 스킬에 보강한다.",
+      "source_path": "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-figma-implementation.md"
+    },
+    {
+      "task_id": "production-router-codex-in-hermes",
+      "answer": "작업분류:\n저장소 버그 코드 검증 작업으로 분류한다. 요청은 “이 저장소 버그를 코덱스로 고쳐줘. 헤르메스가 알아서 검증해줘”이므로, 목표는 버그 재현 가능성 확인, 코드 수정, 검증 완료까지 닫는 것이다.\n선행경로:\n알피 씨엘아이를 먼저 실행해 저장소가 열린 작업공간에 있는지 확인한다. 그다음 저장소 구조와 관련 문맥을 알피 씨엘아이로 읽고, 버그의 수락 기준을 정리한다. 수락 기준이 부족하면 헤르메스가 코드와 테스트 문맥에서 최소 수락 기준을 추론해 코덱스 실행 지시문에 포함한다.\n실행표면:\n구현은 코덱스 씨엘아이로 맡긴다. 헤르메스는 코덱스 씨엘아이에 버그 설명, 수락 기준, 알피 씨엘아이 문맥, 금지 범위, 기대 패치 방향을 넘긴다. 코덱스가 패치와 구현을 수행하고, 헤르메스는 중간 로그를 감시하며 멈춤이나 엉뚱한 수정이 보이면 범위를 좁혀 재실행한다.\n산출물:\n산출물은 변경 파일 목록, 코덱스 실행 로그, git diff, 테스트 결과다. 헤르메스는 변경 파일을 확인하고, diff를 읽어 요청한 버그와 무관한 수정이 섞였는지 점검한다. 로그에는 선행 알피 씨엘아이 확인, 코덱스 씨엘아이 실행, 테스트 실행, 실패와 재시도 내역을 남긴다.\n검증:\n검증은 테스트, 빌드, 변경 파일 점검, 헤르메스 최종 검토 순서로 닫는다. 먼저 관련 테스트를 실행하고, 가능하면 전체 테스트와 빌드를 실행한다. 실패하면 코덱스 씨엘아이 또는 헤르메스 패치로 수정 후 다시 테스트한다. 마지막에는 변경 파일과 diff를 헤르메스 최종 검토로 확인해 수락 기준 충족 여부를 판정한다.\n기록:\n회귀 방지를 위해 실패한 테스트, 원인, 고친 방식, 실패 패턴을 기록한다. 반복될 만한 절차나 코덱스 씨엘아이 라우팅 규칙이 발견되면 스킬에 반영한다. 작업 결과와 수락 기준, 변경 파일, 테스트 결과, 남은 위험은 옵시디언에 기록해 다음 회귀 조사 때 바로 재사용할 수 있게 한다.",
+      "source_path": "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-codex-in-hermes.md"
+    },
+    {
+      "task_id": "production-router-obsidian-research",
+      "answer": "작업분류:\n연구, 헤르메스, 개선, 평가가 결합된 연구 결과 옵시디언 기록 요청 라우팅으로 닫았다.\n선행경로:\n큐엠디 엠시피는 시간 초과였고, 터미널 큐엠디 재조회로 기존 노트 /Users/heomin/Obsidian Vault/p-projects/luna-system/hermes/2026-04-26-헤르메스-에이전트-민-제작-라우터-고도화-연구.md 를 확인했다. 알피 씨엘아이 windows 와 tree 로 저장소 문맥 /Users/heomin/.hermes/hermes-agent/tinker-atropos 를 확인했다.\n실행표면:\n티커 아트로포스의 평가 세트와 실험 점수판을 헤르메스 개선 실행표면으로 삼았다. 실행 기준은 헤르메스 라우팅 응답이 선행 도구, 산출물, 검증 근거, 기록까지 닫는지 평가하는 것이다.\n산출물:\n옵시디언 노트 생성 완료 경로: /Users/heomin/Obsidian Vault/99_Logs/2026-04-26-헤르메스-연구-결과-옵시디언-기록-요청-라우팅.md\n제이슨 경로: /Users/heomin/.hermes/hermes-agent/tinker-atropos/research/min_hermes_offline_eval_v4_production_workflow_spec.json, /Users/heomin/.hermes/hermes-agent/tinker-atropos/research/min_hermes_offline_eval_v4_actual_scoreboard.json\n마크다운 경로: /Users/heomin/.hermes/hermes-agent/tinker-atropos/research/min_hermes_offline_eval_v4_production_workflow_spec.md, /Users/heomin/.hermes/hermes-agent/tinker-atropos/research/min_hermes_offline_eval_v4_actual_scoreboard.md\n검증:\n검증 근거는 큐엠디 재조회, 알피 씨엘아이 트리 확인, 파일 존재 확인, 테스트 실행 결과다. 파일 존재는 ROUTING_NOTE_EXISTS 와 평가 세트 파일 존재로 확인했다. 테스트는 /Users/heomin/.hermes/hermes-agent/tinker-atropos 에서 실행했고 결과는 15 passed in 4.29s 였다. 점수판 재조회 결과는 현재 정책 평균 0.4251, 실제 헤르메스 현재 세션 평균 1.0, 제작 라우터 정책 평균 1.0, 실패 정책 평균 0.0649 였다.\n기록:\n스킬 hermes-min-production-loop, 옵시디언 기록, 티커 아트로포스 평가 세트, 운영 규칙에 맞춰 기록까지 닫았다. 다음 같은 요청은 큐엠디 선행, 알피 씨엘아이 저장소 문맥 확인, 티커 아트로포스 평가 세트 검증, 옵시디언 노트 기록 순서로 처리한다.",
+      "source_path": "research/production_router_actual_samples/2026-04-26-hermes-live-guided-full/production-router-obsidian-research.md"
+    }
+  ],
+  "missing_task_ids": []
+}

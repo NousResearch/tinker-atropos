@@ -58,6 +58,30 @@ class TestHealthEndpoint:
         assert data["trainer_initialized"] is True
 
 
+class TestReadinessGuards:
+    def test_completions_returns_503_when_sampling_client_not_ready(self, app_with_trainer, mock_trainer):
+        import tinker_atropos.trainer as trainer_module
+
+        mock_trainer.current_sampling_client = None
+        client = TestClient(app_with_trainer)
+        response = client.post(
+            "/v1/completions",
+            json={"prompt": "hello", "max_tokens": 8, "temperature": 0.7, "n": 1},
+        )
+        assert response.status_code == 503
+        assert "not ready" in response.json()["detail"].lower()
+
+    def test_generate_returns_503_when_tokenizer_not_ready(self, app_with_trainer, mock_trainer):
+        mock_trainer.tokenizer = None
+        client = TestClient(app_with_trainer)
+        response = client.post(
+            "/generate",
+            json={"input_ids": [1, 2, 3], "sampling_params": {"n": 1, "max_new_tokens": 8}},
+        )
+        assert response.status_code == 503
+        assert "not ready" in response.json()["detail"].lower()
+
+
 class TestCompletionsEndpoint:
     def test_single_completion(self, client, mock_trainer):
         """Test single completion request"""

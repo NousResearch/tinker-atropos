@@ -5,7 +5,7 @@ env:
   group_size: 16
   batch_size: 128
   max_batches_offpolicy: 3
-  tokenizer_name: "meta-llama/Llama-3.1-8B-Instruct"
+  tokenizer_name: "Qwen/Qwen3-8B"
   use_wandb: true
   rollout_server_url: "http://localhost:8000"
   wandb_name: "atropos-tinker-env"
@@ -17,7 +17,7 @@ env:
 
 # OpenAI-compatible server configuration
 openai:
-  - model_name: "meta-llama/Llama-3.1-8B-Instruct"
+  - model_name: "Qwen/Qwen3-8B"
     base_url: "http://localhost:8001/v1"
     api_key: "x"
     weight: 1.0

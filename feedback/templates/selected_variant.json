@@ -1,0 +1,17 @@
+{
+  "preset": "ordinarybiz",
+  "project": "example-project",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "헤드라인 문장 1개 수정",
+    "CTA 문장 1개 수정"
+  ],
+  "published_assets": {
+    "x": "",
+    "landing": "",
+    "retention": ""
+  }
+}

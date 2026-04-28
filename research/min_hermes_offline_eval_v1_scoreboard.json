@@ -1,0 +1,2395 @@
+{
+  "benchmark_version": "v1",
+  "primary_bottleneck": "offline_evaluation_missing",
+  "task_count": 15,
+  "lanes": {
+    "current_policy": {
+      "lane": "current_policy",
+      "bundle_path": "research/min_hermes_offline_eval_v1_current_policy_template.json",
+      "mean_total": 1.0,
+      "pass_rate": 1.0,
+      "task_pass_count": 15,
+      "task_count": 15,
+      "lane_passed": true,
+      "env_summary": {
+        "min_agentic_research": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        },
+        "min_business_strategy": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        },
+        "min_landing_cro": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        },
+        "min_membership_retention": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        },
+        "min_x_strategy": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        }
+      },
+      "weakest_tasks": [
+        {
+          "task_id": "research-ailit-competitor-homepage",
+          "title": "Ailit 경쟁사 비교와 첫 화면 수정안",
+          "total": 1.0
+        },
+        {
+          "task_id": "research-bootcamp-free-paid-bridge",
+          "title": "부트캠프 무료에서 유료 전환 장치 비교 조사",
+          "total": 1.0
+        },
+        {
+          "task_id": "research-youtube-description-benchmark",
+          "title": "유튜브 설명란 전환 사례 비교 조사",
+          "total": 1.0
+        }
+      ],
+      "task_results": [
+        {
+          "task_id": "biz-ailit-youtube-conversion",
+          "title": "유튜브 유입에서 Ailit 상담 전환 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "priority_clarity",
+              "min": 0.25,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-bootcamp-paid-conversion",
+          "title": "부트캠프 무료에서 유료 전환 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "priority_clarity",
+              "min": 0.25,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-vip-first-week-onboarding",
+          "title": "VIP 첫 칠 일 온보딩 재설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "priority_clarity",
+              "min": 0.25,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-ai-tools-sales-structure",
+          "title": "AI 도구 많이 써도 매출이 안 오르는 이유 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "engagement",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-bootcamp-free-to-paid",
+          "title": "부트캠프 무료에서 유료 전환 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "engagement",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-youtube-description-conversion",
+          "title": "유튜브 설명란 전환 개선 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "engagement",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-ailit-consult-home",
+          "title": "Ailit 상담 랜딩 첫 화면 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-bootcamp-trial",
+          "title": "부트캠프 체험 신청 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-telegram-join",
+          "title": "텔레그램 채널 합류 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "retention-vip-first-week",
+          "title": "VIP 신규 멤버 첫 칠 일 리텐션 개선",
+          "env": "min_membership_retention",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "retention_mechanism": 1.0,
+            "metric_quality": 1.0,
+            "beginner_friendliness": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "retention_mechanism",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.2,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "retention-bootcamp-first-week",
+          "title": "부트캠프 첫 주 유지 개선",
+          "env": "min_membership_retention",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "retention_mechanism": 1.0,
+            "metric_quality": 1.0,
+            "beginner_friendliness": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "retention_mechanism",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.2,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "retention-ailit-followup",
+          "title": "Ailit 입문 상품 후속 리텐션 개선",
+          "env": "min_membership_retention",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "retention_mechanism": 1.0,
+            "metric_quality": 0.8999999999999999,
+            "beginner_friendliness": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "retention_mechanism",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.2,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "research-ailit-competitor-homepage",
+          "title": "Ailit 경쟁사 비교와 첫 화면 수정안",
+          "env": "min_agentic_research",
+          "answer_present": true,
+          "score": {
+            "total": 0.9999999999999999,
+            "section_coverage": 1.0,
+            "comparison_quality": 1.0,
+            "actionability": 1.0,
+            "specificity": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "comparison_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "research-bootcamp-free-paid-bridge",
+          "title": "부트캠프 무료에서 유료 전환 장치 비교 조사",
+          "env": "min_agentic_research",
+          "answer_present": true,
+          "score": {
+            "total": 0.9999999999999999,
+            "section_coverage": 1.0,
+            "comparison_quality": 1.0,
+            "actionability": 1.0,
+            "specificity": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "comparison_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "research-youtube-description-benchmark",
+          "title": "유튜브 설명란 전환 사례 비교 조사",
+          "env": "min_agentic_research",
+          "answer_present": true,
+          "score": {
+            "total": 0.9999999999999999,
+            "section_coverage": 1.0,
+            "comparison_quality": 1.0,
+            "actionability": 1.0,
+            "specificity": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "comparison_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    "patched_policy": {
+      "lane": "patched_policy",
+      "bundle_path": "research/min_hermes_offline_eval_v1_patched_policy_template.json",
+      "mean_total": 1.0,
+      "pass_rate": 1.0,
+      "task_pass_count": 15,
+      "task_count": 15,
+      "lane_passed": true,
+      "env_summary": {
+        "min_agentic_research": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        },
+        "min_business_strategy": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        },
+        "min_landing_cro": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        },
+        "min_membership_retention": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        },
+        "min_x_strategy": {
+          "task_count": 3,
+          "mean_total": 1.0,
+          "pass_rate": 1.0
+        }
+      },
+      "weakest_tasks": [
+        {
+          "task_id": "research-ailit-competitor-homepage",
+          "title": "Ailit 경쟁사 비교와 첫 화면 수정안",
+          "total": 1.0
+        },
+        {
+          "task_id": "research-bootcamp-free-paid-bridge",
+          "title": "부트캠프 무료에서 유료 전환 장치 비교 조사",
+          "total": 1.0
+        },
+        {
+          "task_id": "research-youtube-description-benchmark",
+          "title": "유튜브 설명란 전환 사례 비교 조사",
+          "total": 1.0
+        }
+      ],
+      "task_results": [
+        {
+          "task_id": "biz-ailit-youtube-conversion",
+          "title": "유튜브 유입에서 Ailit 상담 전환 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "priority_clarity",
+              "min": 0.25,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-bootcamp-paid-conversion",
+          "title": "부트캠프 무료에서 유료 전환 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "priority_clarity",
+              "min": 0.25,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-vip-first-week-onboarding",
+          "title": "VIP 첫 칠 일 온보딩 재설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "priority_clarity",
+              "min": 0.25,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-ai-tools-sales-structure",
+          "title": "AI 도구 많이 써도 매출이 안 오르는 이유 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "engagement",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-bootcamp-free-to-paid",
+          "title": "부트캠프 무료에서 유료 전환 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "engagement",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-youtube-description-conversion",
+          "title": "유튜브 설명란 전환 개선 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 1.0,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "engagement",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-ailit-consult-home",
+          "title": "Ailit 상담 랜딩 첫 화면 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-bootcamp-trial",
+          "title": "부트캠프 체험 신청 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-telegram-join",
+          "title": "텔레그램 채널 합류 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "copy_quality": 1.0,
+            "experiment_quality": 1.0,
+            "metric_quality": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "retention-vip-first-week",
+          "title": "VIP 신규 멤버 첫 칠 일 리텐션 개선",
+          "env": "min_membership_retention",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "retention_mechanism": 1.0,
+            "metric_quality": 1.0,
+            "beginner_friendliness": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "retention_mechanism",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.2,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "retention-bootcamp-first-week",
+          "title": "부트캠프 첫 주 유지 개선",
+          "env": "min_membership_retention",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "retention_mechanism": 1.0,
+            "metric_quality": 0.8999999999999999,
+            "beginner_friendliness": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "retention_mechanism",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.2,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "retention-ailit-followup",
+          "title": "Ailit 입문 상품 후속 리텐션 개선",
+          "env": "min_membership_retention",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "retention_mechanism": 1.0,
+            "metric_quality": 1.0,
+            "beginner_friendliness": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "retention_mechanism",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.2,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "research-ailit-competitor-homepage",
+          "title": "Ailit 경쟁사 비교와 첫 화면 수정안",
+          "env": "min_agentic_research",
+          "answer_present": true,
+          "score": {
+            "total": 0.9999999999999999,
+            "section_coverage": 1.0,
+            "comparison_quality": 1.0,
+            "actionability": 1.0,
+            "specificity": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "comparison_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "research-bootcamp-free-paid-bridge",
+          "title": "부트캠프 무료에서 유료 전환 장치 비교 조사",
+          "env": "min_agentic_research",
+          "answer_present": true,
+          "score": {
+            "total": 0.9999999999999999,
+            "section_coverage": 1.0,
+            "comparison_quality": 1.0,
+            "actionability": 1.0,
+            "specificity": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "comparison_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "research-youtube-description-benchmark",
+          "title": "유튜브 설명란 전환 사례 비교 조사",
+          "env": "min_agentic_research",
+          "answer_present": true,
+          "score": {
+            "total": 0.9999999999999999,
+            "section_coverage": 1.0,
+            "comparison_quality": 1.0,
+            "actionability": 1.0,
+            "specificity": 1.0,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "comparison_quality",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    "human_baseline": {
+      "lane": "human_baseline",
+      "bundle_path": "research/min_hermes_offline_eval_v1_human_baseline.json",
+      "mean_total": 0.8928,
+      "pass_rate": 0.9333,
+      "task_pass_count": 14,
+      "task_count": 15,
+      "lane_passed": true,
+      "env_summary": {
+        "min_agentic_research": {
+          "task_count": 3,
+          "mean_total": 0.8552,
+          "pass_rate": 1.0
+        },
+        "min_business_strategy": {
+          "task_count": 3,
+          "mean_total": 0.9733,
+          "pass_rate": 1.0
+        },
+        "min_landing_cro": {
+          "task_count": 3,
+          "mean_total": 0.8417,
+          "pass_rate": 0.6667
+        },
+        "min_membership_retention": {
+          "task_count": 3,
+          "mean_total": 0.8824,
+          "pass_rate": 1.0
+        },
+        "min_x_strategy": {
+          "task_count": 3,
+          "mean_total": 0.9112,
+          "pass_rate": 1.0
+        }
+      },
+      "weakest_tasks": [
+        {
+          "task_id": "landing-bootcamp-trial",
+          "title": "부트캠프 체험 신청 랜딩 개선",
+          "total": 0.78
+        },
+        {
+          "task_id": "landing-telegram-join",
+          "title": "텔레그램 채널 합류 랜딩 개선",
+          "total": 0.805
+        },
+        {
+          "task_id": "research-youtube-description-benchmark",
+          "title": "유튜브 설명란 전환 사례 비교 조사",
+          "total": 0.8192
+        }
+      ],
+      "task_results": [
+        {
+          "task_id": "biz-ailit-youtube-conversion",
+          "title": "유튜브 유입에서 Ailit 상담 전환 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 1.0,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 1.0,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "priority_clarity",
+              "min": 0.25,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-bootcamp-paid-conversion",
+          "title": "부트캠프 무료에서 유료 전환 설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 0.96,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 0.6000000000000001,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "priority_clarity",
+              "min": 0.25,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "biz-vip-first-week-onboarding",
+          "title": "VIP 첫 칠 일 온보딩 재설계",
+          "env": "min_business_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 0.96,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "actionability": 1.0,
+            "beginner_friendliness": 0.6000000000000001,
+            "channel_fit": 1.0,
+            "priority_clarity": 1.0,
+            "section_alignment": 1.0,
+            "proposal_alignment": 1.0,
+            "metric_alignment": 1.0,
+            "experiment_alignment": 1.0,
+            "brevity": 1.0,
+            "buzzword_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "priority_clarity",
+              "min": 0.25,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-ai-tools-sales-structure",
+          "title": "AI 도구 많이 써도 매출이 안 오르는 이유 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 0.8903333333333334,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 0.6,
+            "engagement": 0.85,
+            "actionability": 0.9,
+            "single_action_clarity": 0.8999999999999999,
+            "section_alignment": 0.9666666666666667,
+            "body_alignment": 1.0,
+            "comment_alignment": 0.8999999999999999,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 0.6,
+              "actual": 0.6,
+              "passed": true
+            },
+            {
+              "metric": "engagement",
+              "min": 0.6,
+              "actual": 0.85,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 0.9,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-bootcamp-free-to-paid",
+          "title": "부트캠프 무료에서 유료 전환 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 0.8633333333333334,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 0.6,
+            "engagement": 0.75,
+            "actionability": 0.9,
+            "single_action_clarity": 0.6,
+            "section_alignment": 0.9666666666666667,
+            "body_alignment": 1.0,
+            "comment_alignment": 0.8999999999999999,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 0.6,
+              "actual": 0.6,
+              "passed": true
+            },
+            {
+              "metric": "engagement",
+              "min": 0.6,
+              "actual": 0.75,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 0.9,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 0.5,
+              "actual": 0.6,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "x-youtube-description-conversion",
+          "title": "유튜브 설명란 전환 개선 X 글",
+          "env": "min_x_strategy",
+          "answer_present": true,
+          "score": {
+            "total": 0.9800000000000001,
+            "section_coverage": 1.0,
+            "keyword_coverage": 1.0,
+            "hook_strength": 1.0,
+            "engagement": 1.0,
+            "actionability": 1.0,
+            "single_action_clarity": 0.6,
+            "section_alignment": 1.0,
+            "body_alignment": 1.0,
+            "comment_alignment": 1.0,
+            "action_alignment": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "hook_strength",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "engagement",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "single_action_clarity",
+              "min": 0.5,
+              "actual": 0.6,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-ailit-consult-home",
+          "title": "Ailit 상담 랜딩 첫 화면 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 0.9400000000000001,
+            "section_coverage": 1.0,
+            "specificity": 0.8999999999999999,
+            "copy_quality": 1.0,
+            "experiment_quality": 0.8999999999999999,
+            "metric_quality": 0.8333333333333334,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 0.6,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 0.8333333333333334,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-bootcamp-trial",
+          "title": "부트캠프 체험 신청 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 0.78,
+            "section_coverage": 1.0,
+            "specificity": 0.75,
+            "copy_quality": 0.6000000000000001,
+            "experiment_quality": 0.8999999999999999,
+            "metric_quality": 0.6666666666666666,
+            "keyword_coverage": 0.75,
+            "hype_penalty": -0.0
+          },
+          "task_passed": false,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 0.75,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 0.6,
+              "actual": 0.6000000000000001,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 0.6666666666666666,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "landing-telegram-join",
+          "title": "텔레그램 채널 합류 랜딩 개선",
+          "env": "min_landing_cro",
+          "answer_present": true,
+          "score": {
+            "total": 0.805,
+            "section_coverage": 1.0,
+            "specificity": 0.75,
+            "copy_quality": 0.6000000000000001,
+            "experiment_quality": 0.8999999999999999,
+            "metric_quality": 0.6666666666666666,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 0.75,
+              "passed": true
+            },
+            {
+              "metric": "copy_quality",
+              "min": 0.6,
+              "actual": 0.6000000000000001,
+              "passed": true
+            },
+            {
+              "metric": "experiment_quality",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 0.6666666666666666,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "retention-vip-first-week",
+          "title": "VIP 신규 멤버 첫 칠 일 리텐션 개선",
+          "env": "min_membership_retention",
+          "answer_present": true,
+          "score": {
+            "total": 0.8597000000000001,
+            "section_coverage": 1.0,
+            "specificity": 1.0,
+            "retention_mechanism": 0.6,
+            "metric_quality": 0.72,
+            "beginner_friendliness": 0.8,
+            "keyword_coverage": 0.75,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "retention_mechanism",
+              "min": 0.5,
+              "actual": 0.6,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 0.72,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.2,
+              "actual": 0.8,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "retention-bootcamp-first-week",
+          "title": "부트캠프 첫 주 유지 개선",
+          "env": "min_membership_retention",
+          "answer_present": true,
+          "score": {
+            "total": 0.8794000000000001,
+            "section_coverage": 1.0,
+            "specificity": 0.8999999999999999,
+            "retention_mechanism": 0.75,
+            "metric_quality": 0.54,
+            "beginner_friendliness": 0.8,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "retention_mechanism",
+              "min": 0.5,
+              "actual": 0.75,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 0.54,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.2,
+              "actual": 0.8,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "retention-ailit-followup",
+          "title": "Ailit 입문 상품 후속 리텐션 개선",
+          "env": "min_membership_retention",
+          "answer_present": true,
+          "score": {
+            "total": 0.9082,
+            "section_coverage": 1.0,
+            "specificity": 0.75,
+            "retention_mechanism": 0.8999999999999999,
+            "metric_quality": 0.72,
+            "beginner_friendliness": 0.8,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 0.75,
+              "passed": true
+            },
+            {
+              "metric": "retention_mechanism",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "metric_quality",
+              "min": 0.5,
+              "actual": 0.72,
+              "passed": true
+            },
+            {
+              "metric": "beginner_friendliness",
+              "min": 0.2,
+              "actual": 0.8,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "research-ailit-competitor-homepage",
+          "title": "Ailit 경쟁사 비교와 첫 화면 수정안",
+          "env": "min_agentic_research",
+          "answer_present": true,
+          "score": {
+            "total": 0.8911999999999999,
+            "section_coverage": 1.0,
+            "comparison_quality": 0.8999999999999999,
+            "actionability": 0.8999999999999999,
+            "specificity": 0.64,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "comparison_quality",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 0.64,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "research-bootcamp-free-paid-bridge",
+          "title": "부트캠프 무료에서 유료 전환 장치 비교 조사",
+          "env": "min_agentic_research",
+          "answer_present": true,
+          "score": {
+            "total": 0.8552000000000001,
+            "section_coverage": 1.0,
+            "comparison_quality": 0.75,
+            "actionability": 0.8999999999999999,
+            "specificity": 0.64,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "comparison_quality",
+              "min": 0.5,
+              "actual": 0.75,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 0.64,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "task_id": "research-youtube-description-benchmark",
+          "title": "유튜브 설명란 전환 사례 비교 조사",
+          "env": "min_agentic_research",
+          "answer_present": true,
+          "score": {
+            "total": 0.8192,
+            "section_coverage": 1.0,
+            "comparison_quality": 0.6,
+            "actionability": 0.8999999999999999,
+            "specificity": 0.64,
+            "keyword_coverage": 1.0,
+            "hype_penalty": -0.0
+          },
+          "task_passed": true,
+          "gate_results": [
+            {
+              "metric": "section_coverage",
+              "min": 1.0,
+              "actual": 1.0,
+              "passed": true
+            },
+            {
+              "metric": "comparison_quality",
+              "min": 0.5,
+              "actual": 0.6,
+              "passed": true
+            },
+            {
+              "metric": "actionability",
+              "min": 0.5,
+              "actual": 0.8999999999999999,
+              "passed": true
+            },
+            {
+              "metric": "specificity",
+              "min": 0.5,
+              "actual": 0.64,
+              "passed": true
+            },
+            {
+              "metric": "keyword_coverage",
+              "min": 0.5,
+              "actual": 1.0,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

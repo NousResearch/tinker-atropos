@@ -1,0 +1,18 @@
+{
+  "preset": "ordinarybiz",
+  "project": "batch-vip-retention-ordinarybiz",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "헤드라인 채택: 부담 없이 신청으로 이어지는 후기와 사례를 붙인 입문형 제안을 우선 노출한다",
+    "본문 채택: 여기서 중요한 건 후기와 사례를 붙인 입문형 제안에 초점을 모으는 것이고, 오늘 할 일은 입문 제안 문장 하나만 바꾸고 클릭률 차이를 비교한다.",
+    "체크인 채택: 부담 없이 오늘 체크할 한 가지는 이것입니다: 입문 제안 문장 하나만 바꾸고 클릭률 차이를 비교한다"
+  ],
+  "published_assets": {
+    "x": "오늘 바로 할 일은 입문 제안 문장 하나만 바꾸고 클릭률 차이를 비교한다.",
+    "landing": "부담 없이 신청으로 이어지는 후기와 사례를 붙인 입문형 제안을 우선 노출한다",
+    "retention": "부담 없이 오늘 체크할 한 가지는 이것입니다: 입문 제안 문장 하나만 바꾸고 클릭률 차이를 비교한다"
+  }
+}

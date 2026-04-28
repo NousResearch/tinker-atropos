@@ -1,0 +1,583 @@
+{
+  "version": "v1",
+  "primary_bottleneck": "offline_evaluation_missing",
+  "mission_closest_to": "hermes_workflow_completion",
+  "task_pass_threshold": 0.8,
+  "lane_pass_thresholds": {
+    "mean_total": 0.82,
+    "pass_rate": 0.8,
+    "min_env_mean": 0.78
+  },
+  "comparison_lanes": [
+    "current_policy",
+    "patched_policy",
+    "human_baseline"
+  ],
+  "task_selection_principle": "각 환경에서 민의 실전 운영 가치가 높은 대표 과제 세 개씩 뽑아 총 열다섯 개로 고정했다.",
+  "tri_comparison_protocol": [
+    "같은 task_id 순서로 current_policy, patched_policy, human_baseline 답안을 준비한다.",
+    "각 lane은 동일 task_id에 대해 하나의 답만 제출한다.",
+    "task total, gate metric, env mean, 전체 pass_rate를 함께 본다.",
+    "patched_policy는 current_policy보다 mean_total과 pass_count가 모두 좋아져야 승격 후보로 본다."
+  ],
+  "tasks": [
+    {
+      "task_id": "biz-ailit-youtube-conversion",
+      "env": "min_business_strategy",
+      "item_index": 0,
+      "title": "유튜브 유입에서 Ailit 상담 전환 설계",
+      "why_it_matters": "현재 민 비즈니스에서 바로 돈으로 연결되는 핵심 병목이다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "keyword_coverage",
+          "min": 0.5
+        },
+        {
+          "metric": "actionability",
+          "min": 1.0
+        },
+        {
+          "metric": "priority_clarity",
+          "min": 0.25
+        }
+      ],
+      "success_rules": [
+        "모든 섹션을 빠짐없이 채운다.",
+        "이번 주 또는 일주일 같은 실행 시점이 보인다.",
+        "전환 지표와 우선순위 한 가지가 분명하다."
+      ],
+      "failure_signals": [
+        "허풍만 있고 채널, 실험, 지표가 비어 있다.",
+        "무엇을 먼저 할지 드러나지 않는다."
+      ]
+    },
+    {
+      "task_id": "biz-bootcamp-paid-conversion",
+      "env": "min_business_strategy",
+      "item_index": 1,
+      "title": "부트캠프 무료에서 유료 전환 설계",
+      "why_it_matters": "콘텐츠 소비를 결제로 잇는 구조를 검증하는 대표 과제다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "keyword_coverage",
+          "min": 0.5
+        },
+        {
+          "metric": "actionability",
+          "min": 1.0
+        },
+        {
+          "metric": "priority_clarity",
+          "min": 0.25
+        }
+      ],
+      "success_rules": [
+        "모든 섹션을 빠짐없이 채운다.",
+        "이번 주 또는 일주일 같은 실행 시점이 보인다.",
+        "전환 지표와 우선순위 한 가지가 분명하다."
+      ],
+      "failure_signals": [
+        "허풍만 있고 채널, 실험, 지표가 비어 있다.",
+        "무엇을 먼저 할지 드러나지 않는다."
+      ]
+    },
+    {
+      "task_id": "biz-vip-first-week-onboarding",
+      "env": "min_business_strategy",
+      "item_index": 2,
+      "title": "VIP 첫 칠 일 온보딩 재설계",
+      "why_it_matters": "잔존율과 운영 효율을 동시에 보는 전략 과제다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "keyword_coverage",
+          "min": 0.5
+        },
+        {
+          "metric": "actionability",
+          "min": 1.0
+        },
+        {
+          "metric": "priority_clarity",
+          "min": 0.25
+        }
+      ],
+      "success_rules": [
+        "모든 섹션을 빠짐없이 채운다.",
+        "이번 주 또는 일주일 같은 실행 시점이 보인다.",
+        "전환 지표와 우선순위 한 가지가 분명하다."
+      ],
+      "failure_signals": [
+        "허풍만 있고 채널, 실험, 지표가 비어 있다.",
+        "무엇을 먼저 할지 드러나지 않는다."
+      ]
+    },
+    {
+      "task_id": "x-ai-tools-sales-structure",
+      "env": "min_x_strategy",
+      "item_index": 0,
+      "title": "AI 도구 많이 써도 매출이 안 오르는 이유 X 글",
+      "why_it_matters": "민의 핵심 세계관을 가장 잘 드러내는 X 과제다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "hook_strength",
+          "min": 0.6
+        },
+        {
+          "metric": "engagement",
+          "min": 0.6
+        },
+        {
+          "metric": "actionability",
+          "min": 0.5
+        },
+        {
+          "metric": "single_action_clarity",
+          "min": 0.5
+        }
+      ],
+      "success_rules": [
+        "후크가 문제를 바로 찌른다.",
+        "댓글유도와 행동유도가 각각 따로 살아 있다.",
+        "오늘 할 한 가지 행동이 명확하다."
+      ],
+      "failure_signals": [
+        "동기부여성 문장만 있고 질문이 약하다.",
+        "행동유도가 여러 개라서 초점이 흐린다."
+      ]
+    },
+    {
+      "task_id": "x-bootcamp-free-to-paid",
+      "env": "min_x_strategy",
+      "item_index": 1,
+      "title": "부트캠프 무료에서 유료 전환 X 글",
+      "why_it_matters": "무료 소비자에게 첫 행동을 유도하는지 본다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "hook_strength",
+          "min": 0.6
+        },
+        {
+          "metric": "engagement",
+          "min": 0.6
+        },
+        {
+          "metric": "actionability",
+          "min": 0.5
+        },
+        {
+          "metric": "single_action_clarity",
+          "min": 0.5
+        }
+      ],
+      "success_rules": [
+        "후크가 문제를 바로 찌른다.",
+        "댓글유도와 행동유도가 각각 따로 살아 있다.",
+        "오늘 할 한 가지 행동이 명확하다."
+      ],
+      "failure_signals": [
+        "동기부여성 문장만 있고 질문이 약하다.",
+        "행동유도가 여러 개라서 초점이 흐린다."
+      ]
+    },
+    {
+      "task_id": "x-youtube-description-conversion",
+      "env": "min_x_strategy",
+      "item_index": 4,
+      "title": "유튜브 설명란 전환 개선 X 글",
+      "why_it_matters": "콘텐츠에서 상담 전환으로 이어지는 단일 행동 유도를 본다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "hook_strength",
+          "min": 0.6
+        },
+        {
+          "metric": "engagement",
+          "min": 0.6
+        },
+        {
+          "metric": "actionability",
+          "min": 0.5
+        },
+        {
+          "metric": "single_action_clarity",
+          "min": 0.5
+        }
+      ],
+      "success_rules": [
+        "후크가 문제를 바로 찌른다.",
+        "댓글유도와 행동유도가 각각 따로 살아 있다.",
+        "오늘 할 한 가지 행동이 명확하다."
+      ],
+      "failure_signals": [
+        "동기부여성 문장만 있고 질문이 약하다.",
+        "행동유도가 여러 개라서 초점이 흐린다."
+      ]
+    },
+    {
+      "task_id": "landing-ailit-consult-home",
+      "env": "min_landing_cro",
+      "item_index": 0,
+      "title": "Ailit 상담 랜딩 첫 화면 개선",
+      "why_it_matters": "첫 화면 병목과 카피 실험 설계를 동시에 검증한다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "specificity",
+          "min": 0.5
+        },
+        {
+          "metric": "copy_quality",
+          "min": 0.6
+        },
+        {
+          "metric": "experiment_quality",
+          "min": 0.5
+        },
+        {
+          "metric": "metric_quality",
+          "min": 0.5
+        }
+      ],
+      "success_rules": [
+        "첫 화면 병목을 구체적으로 짚는다.",
+        "바꿀 카피 한 줄이 실제 문장으로 나온다.",
+        "반반 비교와 지표가 함께 설계된다."
+      ],
+      "failure_signals": [
+        "카피수정이 추상적이거나 비어 있다.",
+        "실험과 지표가 분리되지 않는다."
+      ]
+    },
+    {
+      "task_id": "landing-bootcamp-trial",
+      "env": "min_landing_cro",
+      "item_index": 1,
+      "title": "부트캠프 체험 신청 랜딩 개선",
+      "why_it_matters": "무료와 유료 사이 간극을 줄이는 카피 감각을 본다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "specificity",
+          "min": 0.5
+        },
+        {
+          "metric": "copy_quality",
+          "min": 0.6
+        },
+        {
+          "metric": "experiment_quality",
+          "min": 0.5
+        },
+        {
+          "metric": "metric_quality",
+          "min": 0.5
+        }
+      ],
+      "success_rules": [
+        "첫 화면 병목을 구체적으로 짚는다.",
+        "바꿀 카피 한 줄이 실제 문장으로 나온다.",
+        "반반 비교와 지표가 함께 설계된다."
+      ],
+      "failure_signals": [
+        "카피수정이 추상적이거나 비어 있다.",
+        "실험과 지표가 분리되지 않는다."
+      ]
+    },
+    {
+      "task_id": "landing-telegram-join",
+      "env": "min_landing_cro",
+      "item_index": 2,
+      "title": "텔레그램 채널 합류 랜딩 개선",
+      "why_it_matters": "콘텐츠 채널 유입과 보상 설계를 점검한다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "specificity",
+          "min": 0.5
+        },
+        {
+          "metric": "copy_quality",
+          "min": 0.6
+        },
+        {
+          "metric": "experiment_quality",
+          "min": 0.5
+        },
+        {
+          "metric": "metric_quality",
+          "min": 0.5
+        }
+      ],
+      "success_rules": [
+        "첫 화면 병목을 구체적으로 짚는다.",
+        "바꿀 카피 한 줄이 실제 문장으로 나온다.",
+        "반반 비교와 지표가 함께 설계된다."
+      ],
+      "failure_signals": [
+        "카피수정이 추상적이거나 비어 있다.",
+        "실험과 지표가 분리되지 않는다."
+      ]
+    },
+    {
+      "task_id": "retention-vip-first-week",
+      "env": "min_membership_retention",
+      "item_index": 0,
+      "title": "VIP 신규 멤버 첫 칠 일 리텐션 개선",
+      "why_it_matters": "민 전용 멤버십 운영 감각을 직접 측정한다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "specificity",
+          "min": 0.5
+        },
+        {
+          "metric": "retention_mechanism",
+          "min": 0.5
+        },
+        {
+          "metric": "metric_quality",
+          "min": 0.5
+        },
+        {
+          "metric": "beginner_friendliness",
+          "min": 0.2
+        }
+      ],
+      "success_rules": [
+        "이탈 구간이 날짜와 행동으로 보인다.",
+        "체크인이나 미션 같은 유지 장치가 실제 운영 단위로 나온다.",
+        "쉬운 말 톤과 지표가 함께 있다."
+      ],
+      "failure_signals": [
+        "격려만 있고 운영 장치가 없다.",
+        "재방문과 이탈률을 어떻게 볼지 없다."
+      ]
+    },
+    {
+      "task_id": "retention-bootcamp-first-week",
+      "env": "min_membership_retention",
+      "item_index": 1,
+      "title": "부트캠프 첫 주 유지 개선",
+      "why_it_matters": "초보자 친화 운영 문구와 미션 설계를 본다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "specificity",
+          "min": 0.5
+        },
+        {
+          "metric": "retention_mechanism",
+          "min": 0.5
+        },
+        {
+          "metric": "metric_quality",
+          "min": 0.5
+        },
+        {
+          "metric": "beginner_friendliness",
+          "min": 0.2
+        }
+      ],
+      "success_rules": [
+        "이탈 구간이 날짜와 행동으로 보인다.",
+        "체크인이나 미션 같은 유지 장치가 실제 운영 단위로 나온다.",
+        "쉬운 말 톤과 지표가 함께 있다."
+      ],
+      "failure_signals": [
+        "격려만 있고 운영 장치가 없다.",
+        "재방문과 이탈률을 어떻게 볼지 없다."
+      ]
+    },
+    {
+      "task_id": "retention-ailit-followup",
+      "env": "min_membership_retention",
+      "item_index": 2,
+      "title": "Ailit 입문 상품 후속 리텐션 개선",
+      "why_it_matters": "저가 입문에서 업셀로 이어지는 유지 구조를 본다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "specificity",
+          "min": 0.5
+        },
+        {
+          "metric": "retention_mechanism",
+          "min": 0.5
+        },
+        {
+          "metric": "metric_quality",
+          "min": 0.5
+        },
+        {
+          "metric": "beginner_friendliness",
+          "min": 0.2
+        }
+      ],
+      "success_rules": [
+        "이탈 구간이 날짜와 행동으로 보인다.",
+        "체크인이나 미션 같은 유지 장치가 실제 운영 단위로 나온다.",
+        "쉬운 말 톤과 지표가 함께 있다."
+      ],
+      "failure_signals": [
+        "격려만 있고 운영 장치가 없다.",
+        "재방문과 이탈률을 어떻게 볼지 없다."
+      ]
+    },
+    {
+      "task_id": "research-ailit-competitor-homepage",
+      "env": "min_agentic_research",
+      "item_index": 0,
+      "title": "Ailit 경쟁사 비교와 첫 화면 수정안",
+      "why_it_matters": "조사 설계가 전략 수정으로 이어지는지 보는 대표 과제다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "comparison_quality",
+          "min": 0.5
+        },
+        {
+          "metric": "actionability",
+          "min": 0.5
+        },
+        {
+          "metric": "specificity",
+          "min": 0.5
+        },
+        {
+          "metric": "keyword_coverage",
+          "min": 0.5
+        }
+      ],
+      "success_rules": [
+        "찾을정보와 비교기준이 따로 분리된다.",
+        "비교 표나 첫 화면 수정 같은 바로 다음 행동이 있다.",
+        "무엇을 보면 결론을 낼지 기준이 선다."
+      ],
+      "failure_signals": [
+        "조사 계획이 아니라 요약 감상문처럼 쓴다.",
+        "다음행동이 나중에 보자 수준으로 흐린다."
+      ]
+    },
+    {
+      "task_id": "research-bootcamp-free-paid-bridge",
+      "env": "min_agentic_research",
+      "item_index": 1,
+      "title": "부트캠프 무료에서 유료 전환 장치 비교 조사",
+      "why_it_matters": "무료와 유료 브리지 장치의 조사 품질을 본다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "comparison_quality",
+          "min": 0.5
+        },
+        {
+          "metric": "actionability",
+          "min": 0.5
+        },
+        {
+          "metric": "specificity",
+          "min": 0.5
+        },
+        {
+          "metric": "keyword_coverage",
+          "min": 0.5
+        }
+      ],
+      "success_rules": [
+        "찾을정보와 비교기준이 따로 분리된다.",
+        "비교 표나 첫 화면 수정 같은 바로 다음 행동이 있다.",
+        "무엇을 보면 결론을 낼지 기준이 선다."
+      ],
+      "failure_signals": [
+        "조사 계획이 아니라 요약 감상문처럼 쓴다.",
+        "다음행동이 나중에 보자 수준으로 흐린다."
+      ]
+    },
+    {
+      "task_id": "research-youtube-description-benchmark",
+      "env": "min_agentic_research",
+      "item_index": 4,
+      "title": "유튜브 설명란 전환 사례 비교 조사",
+      "why_it_matters": "설명란 문장 실험의 비교 기준이 서는지 본다.",
+      "must_pass_metrics": [
+        {
+          "metric": "section_coverage",
+          "min": 1.0
+        },
+        {
+          "metric": "comparison_quality",
+          "min": 0.5
+        },
+        {
+          "metric": "actionability",
+          "min": 0.5
+        },
+        {
+          "metric": "specificity",
+          "min": 0.5
+        },
+        {
+          "metric": "keyword_coverage",
+          "min": 0.5
+        }
+      ],
+      "success_rules": [
+        "찾을정보와 비교기준이 따로 분리된다.",
+        "비교 표나 첫 화면 수정 같은 바로 다음 행동이 있다.",
+        "무엇을 보면 결론을 낼지 기준이 선다."
+      ],
+      "failure_signals": [
+        "조사 계획이 아니라 요약 감상문처럼 쓴다.",
+        "다음행동이 나중에 보자 수준으로 흐린다."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "version": "v4_production_workflow",
+  "lane": "actual_hermes_live_guided_smoke",
+  "benchmark_path": "research/min_hermes_offline_eval_v4_production_workflow_spec.json",
+  "answer_dir": "research/production_router_actual_samples/2026-04-26-hermes-live-guided-smoke",
+  "written_count": 1,
+  "written_paths": [
+    "research/production_router_actual_samples/2026-04-26-hermes-live-guided-smoke/production-router-landing-build.md"
+  ],
+  "skipped_task_ids": [],
+  "failed_task_ids": [],
+  "task_count_requested": 1
+}

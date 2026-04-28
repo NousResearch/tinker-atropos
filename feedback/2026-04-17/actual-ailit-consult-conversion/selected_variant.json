@@ -1,0 +1,17 @@
+{
+  "preset": "ailit",
+  "project": "actual-ailit-consult-conversion",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "입문 상품 링크 우선 행동 문장",
+    "상담은 다음 단계로 잇는 연결 문장"
+  ],
+  "published_assets": {
+    "x": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-ailit-consult-conversion/summary/ailit-consult-conversion-final-20260417-151931.json",
+    "landing": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-ailit-consult-conversion/summary/ailit-consult-conversion-final-20260417-151931.json",
+    "retention": "/Users/heomin/.hermes/hermes-agent/tinker-atropos/outputs/2026-04-17/actual-ailit-consult-conversion/summary/ailit-consult-conversion-final-20260417-151931.json"
+  }
+}

@@ -1,0 +1,33 @@
+env:
+  group_size: 1
+  batch_size: 1
+  max_batches_offpolicy: 1
+  tokenizer_name: "Qwen/Qwen3-8B"
+  use_wandb: false
+  rollout_server_url: "http://localhost:8000"
+  wandb_name: "min-landing-cro-normal-lite-env"
+  ensure_scores_are_not_same: false
+  max_token_length: 96
+  max_num_workers: 1
+  total_steps: 1
+  steps_per_eval: 100
+
+openai:
+  - model_name: "Qwen/Qwen3-8B"
+    base_url: "http://localhost:8001/v1"
+    api_key: "x"
+    weight: 1.0
+    num_requests_for_eval: 3
+
+tinker:
+  lora_rank: 8
+  learning_rate: 0.00004
+  max_token_trainer_length: 640
+  checkpoint_dir: "./temp/"
+  save_checkpoint_interval: 0
+  wandb_project: "atropos-min-landing-cro-normal-lite"
+  wandb_group: null
+  wandb_run_name: "min-landing-cro-normal-lite"
+
+slurm: false
+testing: false

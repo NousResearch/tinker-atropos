@@ -1,0 +1,45 @@
+{
+  "version": "v3",
+  "primary_bottleneck": "single_tail_delta_promotion_gate",
+  "mission_closest_to": "patched_policy_promotion_gate",
+  "task_pass_threshold": 0.98,
+  "lane_pass_thresholds": {
+    "mean_total": 0.98,
+    "pass_rate": 1.0,
+    "min_env_mean": 0.98
+  },
+  "comparison_lanes": [
+    "current_policy",
+    "patched_policy"
+  ],
+  "task_selection_principle": "current hardening 이후에도 patched가 여전히 앞서는 마지막 단일 꼬리 과제만 남겼다.",
+  "tri_comparison_protocol": [
+    "같은 task_id에 대해 current_policy와 patched_policy 답안을 비교한다.",
+    "task total과 metric_quality gate를 함께 본다.",
+    "patched_policy만 lane pass를 통과하면 승격 신호가 유지된 것으로 본다."
+  ],
+  "tasks": [
+    {
+      "task_id": "landing-live-session-signup-tail",
+      "env": "min_landing_cro",
+      "item_index": 5,
+      "title": "라이브 참여 신청 랜딩 마지막 꼬리 과제",
+      "why_it_matters": "current hardening 후에도 지표 설계 완성도에서 마지막 차이가 남는 꼬리 과제다.",
+      "must_pass_metrics": [
+        {"metric": "section_coverage", "min": 1.0},
+        {"metric": "copy_quality", "min": 1.0},
+        {"metric": "experiment_quality", "min": 1.0},
+        {"metric": "metric_quality", "min": 1.0}
+      ],
+      "success_rules": [
+        "라이브와 리플레이가 카피에 함께 보인다.",
+        "실험 문장은 실제 첫 화면과 버튼 비교 실험이다.",
+        "지표 문장은 신청 전환율, 참여율, 리플레이 시청률을 완전하게 담는다."
+      ],
+      "failure_signals": [
+        "카피는 괜찮아도 지표 설계가 덜 차 있다.",
+        "metric_quality가 1.0에 닿지 않는다."
+      ]
+    }
+  ]
+}

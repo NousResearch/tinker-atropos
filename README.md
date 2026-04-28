@@ -26,7 +26,7 @@ python launch_training.py --config configs/default.yaml
 python tinker_atropos/environments/gsm8k_tinker.py serve --config configs/default.yaml
 ```
 
-This runs a 50-step training example with Llama-3.1-8B-Instruct on the GSM8k environment.
+This runs a 50-step training example with Qwen3-8B on the GSM8k environment.
 
 ## Using Any Atropos Environment
 
@@ -105,8 +105,26 @@ python launch_training.py --config configs/default.yaml --num-steps 100 --no-wan
 
 ### Available Configs
 
-- `default.yaml` - Standard GSM8k config (50 steps, batch_size=128, Llama-3.1-8B)
-- `quick_test.yaml` - Quick test (10 steps, Llama-3.1-8B, no wandb)
+- `default.yaml` - Standard GSM8k config (50 steps, batch_size=128, Qwen3-8B public model)
+- `default_public_normal_lite.yaml` - Public-model normal-lite lane for repeatable local proof runs with lighter batch, group, and step counts
+- `quick_test.yaml` - Quick test (10 steps, Llama-3.2-1B, no wandb)
+- `smoke_qwen_instruct_g4_steps3.yaml` - Public-model smoke lane (3 steps, Qwen3-4B-Instruct, no wandb)
+
+### Stable proof runner for the canonical public path
+
+For a repeatable local proof bundle without leaving ambiguous background processes behind, use:
+
+```bash
+DEFAULT_PUBLIC_READY_CONFIG=configs/default_public_normal_lite.yaml \
+python run_default_public_ready_smoke.py
+```
+
+This runner:
+- restarts `run-api`
+- waits for `trainer_ready`
+- starts the environment only after trainer readiness
+- saves JSON + Markdown proof artifacts under `outputs/YYYY-MM-DD/default-public-ready/summary/`
+- records whether cleanup happened after evidence collection, so final `-9` exit codes are not misread as the root cause
 
 ### Configuration Structure
 
@@ -117,12 +135,12 @@ env:
   # Standard Atropos environment config
   group_size: 16
   batch_size: 128
-  tokenizer_name: "meta-llama/Llama-3.1-8B-Instruct"
+  tokenizer_name: "Qwen/Qwen3-8B"
   # ... more settings
 
 openai:
   # Standard Atropos server config
-  - model_name: "meta-llama/Llama-3.1-8B-Instruct"
+  - model_name: "Qwen/Qwen3-8B"
     base_url: "http://localhost:8001/v1"
     # ... more settings
 

@@ -39,6 +39,15 @@ htmlcov/
 
 # Logs
 *.log
+logs/
+
+# Generated artifacts
+outputs/
+prompt-exports/
+wandb/
+data/
+temp.json
+.omx/
 
 # Environment variables
 .env

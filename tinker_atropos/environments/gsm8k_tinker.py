@@ -18,7 +18,7 @@ from tinker_atropos.config import TinkerAtroposConfig
 
 CONFIG_PATH = "configs/default.yaml"
 
-question_suffix = " Provide a numerical answer without units, written inside \\boxed{}."
+question_suffix = " Solve briefly in at most 5 short lines. Then provide the final numerical answer without units inside \\boxed{}."
 
 convo_prefix = [
     {
@@ -27,7 +27,7 @@ convo_prefix = [
     },
     {
         "role": "assistant",
-        "content": "Let's spell the word out and number all the letters: 1) s 2) t 3) r 4) a 5) w 6) b 7) e 8) r 9) r 10) y. We have r's at positions 3, 8, and 9. \\boxed{3}",
+        "content": "Count the letters in strawberry: r appears at positions 3, 8, and 9. Therefore the answer is \\boxed{3}.",
     },
 ]
 

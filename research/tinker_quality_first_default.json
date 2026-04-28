@@ -1,0 +1,39 @@
+{
+  "candidate_setups": [
+    {
+      "name": "Canonical 8B default",
+      "config_path": "configs/default.yaml",
+      "quality_summary": "Strongest generic quality-first option in the current repo because it uses meta-llama/Llama-3.1-8B-Instruct with a 50-step run and remains the canonical training path.",
+      "cost_note": "Highest cost of the compared configs because it uses an 8B model, a 50-step run, and wandb logging.",
+      "beginner_repeatability": "Best beginner repeatability for a default because the README quickstart already uses this exact config."
+    },
+    {
+      "name": "Public instruct smoke lane",
+      "config_path": "configs/smoke_qwen_instruct_g4_steps3.yaml",
+      "quality_summary": "Useful bounded public-model validation lane, but only 3 steps and tiny batch/group settings make it too short for a quality-first default.",
+      "cost_note": "Much cheaper than the default because it uses a 4B instruct model, only 3 steps, low worker counts, and no wandb.",
+      "beginner_repeatability": "Good for first-run validation because it is cheap and bounded, but it should remain a smoke lane rather than the default."
+    },
+    {
+      "name": "Quick test lane",
+      "config_path": "configs/quick_test.yaml",
+      "quality_summary": "Weakest quality candidate because it drops to a 1B model and keeps only a 10-step debug-oriented run.",
+      "cost_note": "Cheapest option of the three because it uses a 1B model and disables wandb.",
+      "beginner_repeatability": "Easy to rerun for debugging, but the repo currently treats it more as a test/setup lane than the main operating default."
+    }
+  ],
+  "recommended_default": {
+    "name": "Canonical 8B default",
+    "config_path": "configs/default.yaml"
+  },
+  "selection_rationale": "Result quality should come first, and configs/default.yaml is the only generic repo-level config here that combines an 8B instruct model with a materially longer 50-step run. Beginner repeatability is still strong because the README quickstart already points to configs/default.yaml directly. The cheaper smoke and quick-test lanes remain useful, but they are better as validation paths than as the default quality-first setup.",
+  "excluded_options": [
+    "The min_* configs were excluded because they are domain-specific workflow lanes rather than the generic repository default.",
+    "The non-instruct smoke_qwen variants were excluded because smoke_qwen_instruct_g4_steps3.yaml is the clearer beginner-facing public-model smoke lane among the local smoke configs."
+  ],
+  "next_step_validation_plan": [
+    "Run one README-style startup sequence with configs/default.yaml and confirm trainer setup, Atropos registration, and first-step progress.",
+    "Run one bounded smoke pass with configs/smoke_qwen_instruct_g4_steps3.yaml to preserve a cheap validation lane and compare operator friction against the default path.",
+    "Update configs/usage.md so the quick_test.yaml description matches the file's real values before expanding beginner-facing recommendations."
+  ]
+}

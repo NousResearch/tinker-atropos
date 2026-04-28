@@ -1,0 +1,17 @@
+{
+  "preset": "youtube",
+  "project": "ordinarybiz-youtube-feedback",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 2,
+  "chosen_landing_rank": 1,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "설명란 연결 문장을 더 짧게 수정",
+    "헤드라인에서 유튜브 시청자 표현 유지"
+  ],
+  "published_assets": {
+    "x": "used",
+    "landing": "used",
+    "retention": "used"
+  }
+}

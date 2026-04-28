@@ -1,0 +1,17 @@
+{
+  "preset": "bootcamp",
+  "project": "ordinarybiz-bootcamp-feedback",
+  "chosen_business_rank": 1,
+  "chosen_x_rank": 1,
+  "chosen_landing_rank": 2,
+  "chosen_retention_rank": 1,
+  "final_edits": [
+    "실전 과제 문장을 더 짧게 수정",
+    "랜딩 CTA를 더 직접적으로 수정"
+  ],
+  "published_assets": {
+    "x": "used",
+    "landing": "used",
+    "retention": "used"
+  }
+}
