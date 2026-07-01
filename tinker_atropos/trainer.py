@@ -285,6 +285,20 @@ class TinkerAtroposTrainer:
                         for lp, t_lp in zip(all_logprobs, distil_lps)
                     ]
 
+                    # A trajectory flagged with set_advantage_to_zero must
+                    # contribute no gradient regardless of loss mode. The scalar
+                    # `advantages[i]` was zeroed above, but the distill recompute
+                    # rebuilds all_advantages_padded from teacher-student deltas
+                    # and ignores it — re-apply the exclusion here so the
+                    # override survives distillation.
+                    overrides = item.get("overrides")
+                    if (
+                        overrides is not None
+                        and i < len(overrides)
+                        and overrides[i].get("set_advantage_to_zero", False)
+                    ):
+                        all_advantages_padded = [0.0] * len(all_advantages_padded)
+
                     # Track distil stats (non-prompt tokens only)
                     for lp, t_lp, adv in zip(all_logprobs, distil_lps, all_advantages_padded):
                         if lp != 1.0:  # skip prompt sentinel tokens

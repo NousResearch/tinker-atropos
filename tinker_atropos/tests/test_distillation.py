@@ -109,6 +109,26 @@ class TestDistillAdvantageOverwrite:
         for adv in advantages[1:]:
             assert adv != 0.0  # should be overwritten with distil values
 
+    def test_set_advantage_to_zero_override_survives_distill(self, trainer):
+        """A trajectory flagged with set_advantage_to_zero must have ALL
+        advantages == 0.0 even under distillation. The scalar path honors the
+        override, but the distill branch recomputes advantages from
+        teacher-student deltas; without re-applying the override an excluded
+        trajectory still contributes full distillation gradients."""
+        batch = make_batch(
+            tokens_list=[[1, 2, 3, 4, 5]],
+            logprobs_list=[[1.0, 1.0, -0.5, -0.3, -0.2]],
+            scores=[1.0],
+            distill_token_ids=[[[1], [2], [3], [4], [5]]],
+            distill_logprobs=[[[-0.1], [-0.1], [-0.8], [-0.6], [-0.4]]],
+            overrides=[{"set_advantage_to_zero": True}],
+        )
+
+        datums, _, has_distil = trainer.pad_data_to_good_offset(batch)
+        assert has_distil is True
+        advantages = datums[0].loss_fn_inputs["advantages"].to_torch().tolist()
+        assert all(a == 0.0 for a in advantages)
+
     def test_prompt_tokens_still_masked_in_distill(self, trainer):
         """Prompt sentinel tokens (logprob=1.0) still get 0.0 advantage."""
         batch = make_batch(
