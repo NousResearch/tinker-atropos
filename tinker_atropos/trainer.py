@@ -25,7 +25,7 @@ from tinker_atropos.types import (
     LogprobsResponse,
     TokenLogprob,
 )
-from tinker_atropos.config import TinkerAtroposConfig
+from tinker_atropos.config import TinkerAtroposConfig, EnvConfig, TinkerConfig
 
 
 class TinkerAtroposTrainer:
@@ -837,14 +837,27 @@ def run_fastapi_server():
     uvicorn.run(app, host="0.0.0.0", port=8001, log_level="info")
 
 
+def build_config_from_env() -> TinkerAtroposConfig:
+    """Build the training config, honoring LORA_RANK / LEARNING_RATE env vars.
+
+    lora_rank / learning_rate / num_steps are read-only convenience properties
+    on TinkerAtroposConfig, so passing them as top-level kwargs let pydantic's
+    default extra="ignore" drop them and the env vars never applied. Set the
+    real nested EnvConfig / TinkerConfig fields instead.
+    """
+    return TinkerAtroposConfig(
+        env=EnvConfig(total_steps=50),
+        tinker=TinkerConfig(
+            lora_rank=int(os.getenv("LORA_RANK", "32")),
+            learning_rate=float(os.getenv("LEARNING_RATE", "4e-5")),
+        ),
+    )
+
+
 async def main():
     global trainer
 
-    config = TinkerAtroposConfig(
-        lora_rank=int(os.getenv("LORA_RANK", "32")),
-        learning_rate=float(os.getenv("LEARNING_RATE", "4e-5")),
-        num_steps=50,
-    )
+    config = build_config_from_env()
 
     print(f"Using wandb run: {config.wandb_run_name}")
 

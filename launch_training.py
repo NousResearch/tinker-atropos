@@ -51,33 +51,45 @@ def load_config(args) -> TinkerAtroposConfig:
         print("Using default configuration")
         config = TinkerAtroposConfig()
 
-    # Apply CLI overrides
+    # Apply CLI overrides directly onto the nested config fields.
+    #
+    # The flat names below (base_model, lora_rank, num_steps, ...) are
+    # read-only convenience @property accessors on TinkerAtroposConfig, not
+    # model fields. Feeding them back as top-level kwargs via
+    # `TinkerAtroposConfig(**config_dict)` silently dropped every override,
+    # because pydantic v2 defaults to extra="ignore". Assign the underlying
+    # env/tinker fields instead so the overrides actually take effect.
     overrides = {}
     if args.base_model:
+        config.env.tokenizer_name = args.base_model
         overrides["base_model"] = args.base_model
     if args.lora_rank is not None:
+        config.tinker.lora_rank = args.lora_rank
         overrides["lora_rank"] = args.lora_rank
     if args.learning_rate is not None:
+        config.tinker.learning_rate = args.learning_rate
         overrides["learning_rate"] = args.learning_rate
     if args.num_steps is not None:
+        config.env.total_steps = args.num_steps
         overrides["num_steps"] = args.num_steps
     if args.batch_size is not None:
+        config.env.batch_size = args.batch_size
         overrides["batch_size"] = args.batch_size
     if args.group_size is not None:
+        config.env.group_size = args.group_size
         overrides["group_size"] = args.group_size
     if args.wandb_project:
+        config.tinker.wandb_project = args.wandb_project
         overrides["wandb_project"] = args.wandb_project
     if args.wandb_group:
+        config.tinker.wandb_group = args.wandb_group
         overrides["wandb_group"] = args.wandb_group
     if args.no_wandb:
+        config.env.use_wandb = False
         overrides["use_wandb"] = False
 
-    # Create new config with overrides if any were provided
     if overrides:
         print(f"Applying CLI overrides: {overrides}")
-        config_dict = config.to_dict()
-        config_dict.update(overrides)
-        config = TinkerAtroposConfig(**config_dict)
 
     return config
 
