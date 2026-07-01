@@ -217,8 +217,24 @@ class TinkerAtroposTrainer:
 
             group_mean_rewards.append(original_mean)
 
-            # Skip groups where all advantages are zero
-            if len(scores) > 1 and np.all(advantages == 0.0):
+            # Check for distillation data at the group level
+            # Atropos uses "distill_" (double L) field names
+            # This must be determined BEFORE the zero-advantage skip below: for
+            # on-policy-distillation groups the per-token training signal is
+            # (logp_teacher - logp_student), which is independent of the RL
+            # scores. A distillation group with equal scores (e.g. a discrete-
+            # reward distillation env) has all-zero RL advantages but still
+            # carries a valid teacher signal, so it must not be dropped.
+            item_has_distil = (
+                item.get("distill_token_ids") is not None
+                and item.get("distill_logprobs") is not None
+            )
+            if item_has_distil:
+                has_distil_data = True
+
+            # Skip groups where all RL advantages are zero, but never skip
+            # distillation groups (their signal does not come from advantages).
+            if not item_has_distil and len(scores) > 1 and np.all(advantages == 0.0):
                 skipped_count += 1
                 continue
 
@@ -227,15 +243,6 @@ class TinkerAtroposTrainer:
                 for i in range(len(item["overrides"])):
                     if item["overrides"][i].get("set_advantage_to_zero", False):
                         advantages[i] = 0.0
-
-            # Check for distillation data at the group level
-            # Atropos uses "distill_" (double L) field names
-            item_has_distil = (
-                item.get("distill_token_ids") is not None
-                and item.get("distill_logprobs") is not None
-            )
-            if item_has_distil:
-                has_distil_data = True
 
             for i in range(len(item["tokens"])):
                 tokens = item["tokens"][i]

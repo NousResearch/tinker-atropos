@@ -252,6 +252,99 @@ class TestDistillValidation:
         assert result is None
 
 
+class TestZeroAdvantageSkip:
+    """The zero-advantage skip must not drop distillation groups.
+
+    For an on-policy-distillation group the per-token signal is
+    (logp_teacher - logp_student), which is independent of the RL scores. A
+    distillation group whose trajectories all have equal scores has all-zero
+    RL advantages, but its teacher signal is still valid and must be kept.
+    """
+
+    def test_distill_group_with_equal_scores_not_skipped(self, trainer):
+        """Equal scores -> zero RL advantages, but distill group is kept."""
+        group_size = 2
+        batch = make_batch(
+            tokens_list=[
+                [1, 2, 3, 4, 5],
+                [1, 2, 3, 4, 6],
+            ],
+            # Prompt sentinel (1.0) for first two positions, then student logprobs.
+            logprobs_list=[
+                [1.0, 1.0, -0.5, -0.3, -0.2],
+                [1.0, 1.0, -0.4, -0.35, -0.25],
+            ],
+            # Equal scores => RL advantages all 0.0 => would be skipped if not distil.
+            scores=[1.0, 1.0],
+            distill_token_ids=[
+                [[1], [2], [3], [4], [5]],
+                [[1], [2], [3], [4], [6]],
+            ],
+            distill_logprobs=[
+                [[-0.1], [-0.1], [-0.8], [-0.6], [-0.4]],
+                [[-0.1], [-0.1], [-0.7], [-0.65], [-0.45]],
+            ],
+        )
+
+        datums, _, has_distil = trainer.pad_data_to_good_offset(batch)
+
+        # Group must NOT be dropped.
+        assert has_distil is True
+        assert len(datums) == group_size
+
+        # Per-token advantages must equal logp_teacher - logp_student, not 0.0.
+        advantages_0 = datums[0].loss_fn_inputs["advantages"].to_torch().tolist()
+        # After the [1:] shift: positions align with logprobs [1.0, -0.5, -0.3, -0.2]
+        # and teacher logprobs [-0.1, -0.8, -0.6, -0.4].
+        # Position 0: student logprob 1.0 (prompt sentinel) -> advantage 0.0.
+        assert advantages_0[0] == 0.0
+        # Generated positions: teacher - student.
+        assert advantages_0[1] == pytest.approx(-0.8 - (-0.5))
+        assert advantages_0[2] == pytest.approx(-0.6 - (-0.3))
+        assert advantages_0[3] == pytest.approx(-0.4 - (-0.2))
+        # None of the generated-token advantages should be zero here.
+        assert all(a != 0.0 for a in advantages_0[1:])
+
+    def test_non_distill_group_with_equal_scores_still_skipped(self, trainer):
+        """Preserve existing behavior: RL-only group with equal scores is dropped."""
+        batch = make_batch(
+            tokens_list=[
+                [1, 2, 3, 4],
+                [1, 2, 3, 5],
+            ],
+            logprobs_list=[
+                [1.0, 1.0, -0.5, -0.3],
+                [1.0, 1.0, -0.4, -0.2],
+            ],
+            # Equal scores => all-zero RL advantages, no distill => skipped.
+            scores=[1.0, 1.0],
+        )
+
+        datums, _, has_distil = trainer.pad_data_to_good_offset(batch)
+
+        assert has_distil is False
+        assert len(datums) == 0
+
+    def test_rl_group_with_varying_scores_kept(self, trainer):
+        """Sanity: an RL group with non-equal scores is still kept."""
+        batch = make_batch(
+            tokens_list=[
+                [1, 2, 3, 4],
+                [1, 2, 3, 5],
+            ],
+            logprobs_list=[
+                [1.0, 1.0, -0.5, -0.3],
+                [1.0, 1.0, -0.4, -0.2],
+            ],
+            scores=[2.0, 1.0],
+        )
+
+        datums, _, has_distil = trainer.pad_data_to_good_offset(batch)
+
+        assert has_distil is False
+        assert len(datums) == 2
+
+
 class TestConfigInferenceUrl:
     """Test the inference_api_url property fix."""
 
