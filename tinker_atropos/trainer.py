@@ -116,7 +116,7 @@ class TinkerAtroposTrainer:
             "num_steps": self.num_steps,
         }
 
-        response = requests.post(url, json=payload)
+        response = requests.post(url, json=payload, timeout=10)
         response.raise_for_status()
 
         result = response.json()
